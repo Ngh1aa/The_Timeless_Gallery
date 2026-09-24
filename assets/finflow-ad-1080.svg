@@ -1,0 +1,97 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#07111F"/>
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(550 538) rotate(90) scale(382)">
+      <stop stop-color="#65E4B8" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#65E4B8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="white" stroke-opacity="0.035"/>
+    </pattern>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="18" stdDeviation="30" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#grid)"/>
+  <rect width="1080" height="1080" fill="url(#glow)"/>
+
+  <g transform="translate(72 70)">
+    <rect width="38" height="38" rx="10" fill="#65E4B8"/>
+    <path d="M10 27V22H15V27H10ZM17 27V15H22V27H17ZM24 27V9H29V27H24Z" fill="#07111F"/>
+    <text x="52" y="29" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="-1">FinFlow</text>
+  </g>
+
+  <text x="72" y="170" fill="#7D8B86" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5">MULTI-RAIL SETTLEMENT FOR MTOs &amp; PSPs</text>
+
+  <text x="72" y="255" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-4.5">One transaction.</text>
+  <text x="72" y="335" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-4.5">Multiple rails.</text>
+  <text x="72" y="415" fill="#7D8B86" font-family="Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-4.5">A clearer route.</text>
+
+  <g transform="translate(72 512)" filter="url(#shadow)">
+    <rect width="222" height="148" rx="18" fill="#0D1924" stroke="white" stroke-opacity="0.12"/>
+    <text x="18" y="28" fill="#6F7D78" font-family="Courier New, monospace" font-size="11" letter-spacing="1.3">INCOMING · TX 08421</text>
+    <text x="18" y="68" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="30" font-weight="700">$2,840.00</text>
+    <text x="18" y="95" fill="#65E4B8" font-family="Courier New, monospace" font-size="13">USD  →  PHP</text>
+    <text x="18" y="123" fill="#85918D" font-family="Arial, sans-serif" font-size="12">Destination · Wallet</text>
+  </g>
+
+  <path d="M294 586H375" stroke="#65E4B8" stroke-width="2"/>
+  <rect x="330" y="581" width="10" height="10" rx="2" transform="rotate(45 330 581)" fill="#65E4B8"/>
+
+  <g transform="translate(375 512)" filter="url(#shadow)">
+    <rect width="200" height="148" rx="18" fill="#0D1924" stroke="#65E4B8" stroke-opacity="0.6"/>
+    <rect x="18" y="18" width="32" height="32" rx="9" fill="#65E4B8"/>
+    <path d="M27 41V36H31V41H27ZM33 41V29H37V41H33ZM39 41V24H43V41H39Z" fill="#07111F"/>
+    <text x="61" y="40" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="21" font-weight="700">FinFlow</text>
+    <text x="18" y="81" fill="#7C8A85" font-family="Courier New, monospace" font-size="10">ANALYZE → SELECT → ROUTE</text>
+    <text x="18" y="111" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="13">US → PH · Wallet</text>
+    <text x="18" y="133" fill="#65E4B8" font-family="Courier New, monospace" font-size="10">RAIL MATCH FOUND</text>
+  </g>
+
+  <path d="M575 586H655" stroke="#65E4B8" stroke-width="2"/>
+  <path d="M655 586V506M655 586V666M655 586V746" stroke="white" stroke-opacity="0.13"/>
+  <rect x="613" y="581" width="10" height="10" rx="2" transform="rotate(45 613 581)" fill="#65E4B8"/>
+
+  <g transform="translate(680 468)">
+    <g>
+      <rect width="324" height="64" rx="13" fill="#0D1924" stroke="white" stroke-opacity="0.10"/>
+      <rect x="14" y="14" width="36" height="36" rx="9" fill="#14232E"/>
+      <text x="22" y="37" fill="#83918C" font-family="Courier New, monospace" font-size="10">BK</text>
+      <text x="64" y="27" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="14" font-weight="700">Bank</text>
+      <text x="64" y="44" fill="#71807B" font-family="Arial, sans-serif" font-size="10">Account settlement</text>
+      <text x="249" y="35" fill="#71807B" font-family="Courier New, monospace" font-size="9">AVAILABLE</text>
+    </g>
+
+    <g transform="translate(0 76)">
+      <rect width="324" height="72" rx="13" fill="#10271F" stroke="#65E4B8" stroke-opacity="0.68"/>
+      <rect x="14" y="18" width="36" height="36" rx="9" fill="#65E4B8"/>
+      <text x="22" y="41" fill="#07111F" font-family="Courier New, monospace" font-size="10" font-weight="700">WL</text>
+      <text x="64" y="31" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="14" font-weight="700">Wallet</text>
+      <text x="64" y="49" fill="#7F948C" font-family="Arial, sans-serif" font-size="10">Digital wallet payout</text>
+      <text x="246" y="40" fill="#65E4B8" font-family="Courier New, monospace" font-size="9">SELECTED</text>
+    </g>
+
+    <g transform="translate(0 160)">
+      <rect width="324" height="64" rx="13" fill="#0D1924" stroke="white" stroke-opacity="0.10"/>
+      <rect x="14" y="14" width="36" height="36" rx="9" fill="#14232E"/>
+      <text x="22" y="37" fill="#83918C" font-family="Courier New, monospace" font-size="10">CD</text>
+      <text x="64" y="27" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="14" font-weight="700">Card</text>
+      <text x="64" y="44" fill="#71807B" font-family="Arial, sans-serif" font-size="10">Card-based payout</text>
+      <text x="249" y="35" fill="#71807B" font-family="Courier New, monospace" font-size="9">AVAILABLE</text>
+    </g>
+
+    <g transform="translate(0 236)">
+      <rect width="324" height="64" rx="13" fill="#0D1924" stroke="white" stroke-opacity="0.10"/>
+      <text x="18" y="27" fill="#F4F8F6" font-family="Arial, sans-serif" font-size="14" font-weight="700">Stablecoin · Cash payout</text>
+      <text x="18" y="45" fill="#71807B" font-family="Arial, sans-serif" font-size="10">Additional eligible settlement rails</text>
+    </g>
+  </g>
+
+  <g transform="translate(72 890)">
+    <line x1="0" y1="0" x2="936" y2="0" stroke="white" stroke-opacity="0.12"/>
+    <text x="0" y="50" fill="#AAB6B1" font-family="Arial, sans-serif" font-size="22" font-weight="500">Move money with a clearer path to payout.</text>
+    <rect x="744" y="22" width="192" height="54" rx="12" fill="#65E4B8"/>
+    <text x="780" y="56" fill="#07111F" font-family="Arial, sans-serif" font-size="14" font-weight="700">Explore FinFlow  ↗</text>
+  </g>
+</svg>
