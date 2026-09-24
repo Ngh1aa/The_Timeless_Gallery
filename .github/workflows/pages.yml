@@ -63,11 +63,11 @@ jobs:
             echo "Chrome/Chromium is unavailable on runner"
             exit 1
           fi
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01-hero-desktop.png http://127.0.0.1:4173/
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/#mechanism'
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-visibility-desktop.png 'http://127.0.0.1:4173/#visibility'
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/04-hero-mobile.png http://127.0.0.1:4173/
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=2500 --window-size=1080,1080 --screenshot=qa-evidence/05-ad-creative.png http://127.0.0.1:4173/assets/finflow-ad-1080.svg
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01-hero-desktop.png http://127.0.0.1:4173/
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/#mechanism'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-visibility-desktop.png 'http://127.0.0.1:4173/#visibility'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/04-hero-mobile.png http://127.0.0.1:4173/
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1080,1080 --screenshot=qa-evidence/05-ad-creative.png http://127.0.0.1:4173/assets/finflow-ad-1080.svg
           ls -lh qa-evidence
 
       - name: Upload visual QA evidence
