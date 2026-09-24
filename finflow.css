@@ -2160,6 +2160,17 @@ a:focus-visible {
   color: var(--accent-strong);
 }
 
+.mini-node.is-current::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: -5px;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px rgba(126,168,255,.08);
+}
+
 .rail-spectrum span {
   transition: border-color 160ms ease, color 160ms ease, background 160ms ease, opacity 160ms ease;
 }
