@@ -65,7 +65,7 @@ jobs:
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <style>
-              html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07110d}
+              html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f6f3ec}
               iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
             </style>
           </head>
@@ -76,10 +76,16 @@ jobs:
               const params = new URLSearchParams(location.search);
               const target = params.get('target') || 'top';
               const step = params.get('step');
+              const scenario = params.get('scenario');
               frame.addEventListener('load', () => {
                 const doc = frame.contentDocument;
                 doc.documentElement.style.scrollBehavior = 'auto';
                 doc.body.style.scrollBehavior = 'auto';
+                if (scenario) {
+                  doc.querySelector(`[data-scenario="${scenario}"]`)?.click();
+                  const selectedRail = doc.querySelector('[data-rail][data-state="selected"]');
+                  document.body.dataset.selectedRail = selectedRail?.dataset.rail || 'none';
+                }
                 if (step) {
                   doc.querySelector(`[data-step="${step}"]`)?.click();
                   const activeMini = doc.querySelector('.mini-node.is-current');
@@ -102,6 +108,8 @@ jobs:
             exit 1
           fi
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01-hero-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01b-hero-bank-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=top&scenario=bank'
+          "$CHROME" --headless --disable-gpu --no-sandbox --force-prefers-reduced-motion --virtual-time-budget=3500 --dump-dom 'http://127.0.0.1:4173/_qa_capture.html?target=top&scenario=bank' | grep -q 'data-selected-rail="bank"'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02b-mechanism-route-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism&step=route'
           "$CHROME" --headless --disable-gpu --no-sandbox --force-prefers-reduced-motion --virtual-time-budget=3500 --dump-dom 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism&step=route' | grep -q 'data-active-mini="route"'
