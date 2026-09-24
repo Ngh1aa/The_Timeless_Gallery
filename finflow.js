@@ -8,7 +8,11 @@ const scenarios = {
     corridor: "US → PH",
     signalDestination: "Wallet",
     rail: "wallet",
-    path: "Wallet rail selected → Payout ready"
+    railLabel: "Wallet",
+    instruction: "USD → PHP · Wallet payout",
+    path: "Wallet rail selected → Payout ready",
+    tracePath: "Settlement path prepared",
+    traceNext: "Wallet destination confirmation"
   },
   bank: {
     amount: "€6,250.00",
@@ -19,7 +23,11 @@ const scenarios = {
     corridor: "EU → NG",
     signalDestination: "Bank",
     rail: "bank",
-    path: "Bank rail selected → Settlement ready"
+    railLabel: "Bank",
+    instruction: "EUR → NGN · Bank payout",
+    path: "Bank rail selected → Settlement ready",
+    tracePath: "Bank settlement path prepared",
+    traceNext: "Bank destination confirmation"
   },
   cash: {
     amount: "$1,180.00",
@@ -30,7 +38,11 @@ const scenarios = {
     corridor: "US → MX",
     signalDestination: "Cash payout",
     rail: "cash",
-    path: "Cash payout rail selected → Pickup path ready"
+    railLabel: "Cash payout",
+    instruction: "USD → MXN · Cash pickup",
+    path: "Cash payout rail selected → Pickup path ready",
+    tracePath: "Pickup network path prepared",
+    traceNext: "Cash pickup confirmation"
   }
 };
 
@@ -44,6 +56,13 @@ const analyzeCard = $('[data-stage="analyze"]');
 const railsGroup = $('[data-stage="route"]');
 const settlementStrip = $('[data-stage="settle"]');
 const connectors = $$(".connector");
+const scenarioTabs = $$("[data-scenario]");
+
+const traceStops = $$(".trace-stop");
+const traceInstruction = traceStops[0] ? $("small", traceStops[0]) : null;
+const traceSelectedTitle = traceStops[2] ? $("strong", traceStops[2]) : null;
+const traceSelectedMeta = traceStops[2] ? $("small", traceStops[2]) : null;
+const traceNextMeta = traceStops[3] ? $("small", traceStops[3]) : null;
 
 let sequenceTimer = null;
 let stageTimers = [];
@@ -54,7 +73,14 @@ function clearSequence() {
   if (sequenceTimer) window.clearTimeout(sequenceTimer);
 }
 
-function setScenario(key) {
+function syncTrace(data) {
+  if (traceInstruction) traceInstruction.textContent = data.instruction;
+  if (traceSelectedTitle) traceSelectedTitle.textContent = `${data.railLabel} rail selected`;
+  if (traceSelectedMeta) traceSelectedMeta.textContent = data.tracePath;
+  if (traceNextMeta) traceNextMeta.textContent = data.traceNext;
+}
+
+function setScenario(key, { focus = false } = {}) {
   const data = scenarios[key];
   if (!data) return;
 
@@ -73,6 +99,15 @@ function setScenario(key) {
     $(".rail-state", rail).textContent = selected ? "Selected" : "Available";
   });
 
+  scenarioTabs.forEach((item) => {
+    const active = item.dataset.scenario === key;
+    item.classList.toggle("is-active", active);
+    item.setAttribute("aria-selected", String(active));
+    item.setAttribute("tabindex", active ? "0" : "-1");
+    if (active && focus) item.focus();
+  });
+
+  syncTrace(data);
   runRoutingSequence();
 }
 
@@ -138,15 +173,25 @@ function runRoutingSequence() {
   }, 3100));
 }
 
-$$("[data-scenario]").forEach((tab) => {
+scenarioTabs.forEach((tab, index) => {
+  tab.setAttribute("tabindex", tab.classList.contains("is-active") ? "0" : "-1");
+
   tab.addEventListener("click", () => {
-    const key = tab.dataset.scenario;
-    $$("[data-scenario]").forEach((item) => {
-      const active = item === tab;
-      item.classList.toggle("is-active", active);
-      item.setAttribute("aria-selected", String(active));
-    });
-    setScenario(key);
+    setScenario(tab.dataset.scenario);
+  });
+
+  tab.addEventListener("keydown", (event) => {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+
+    let nextIndex = index;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % scenarioTabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (index - 1 + scenarioTabs.length) % scenarioTabs.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = scenarioTabs.length - 1;
+
+    const nextTab = scenarioTabs[nextIndex];
+    setScenario(nextTab.dataset.scenario, { focus: true });
   });
 });
 
@@ -181,7 +226,7 @@ $("[data-demo-form]")?.addEventListener("submit", (event) => {
   const button = $('button[type="submit"]', form);
   if (button) {
     const original = button.innerHTML;
-    button.innerHTML = "Request staged <span aria-hidden=\"true\">✓</span>";
+    button.innerHTML = 'Request staged <span aria-hidden="true">✓</span>';
     button.disabled = true;
     window.setTimeout(() => {
       button.innerHTML = original;
@@ -191,5 +236,6 @@ $("[data-demo-form]")?.addEventListener("submit", (event) => {
 });
 
 window.addEventListener("load", () => {
+  syncTrace(scenarios.wallet);
   runRoutingSequence();
 });
