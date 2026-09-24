@@ -2043,3 +2043,126 @@ a:focus-visible {
 
   .packet { display: none; }
 }
+
+
+/* V4 — rail signature refinement
+   Removes floating-pill template cues and carries the switch-track language
+   through navigation, section identifiers and mechanism progress. */
+.nav-shell {
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 72px;
+  padding: 10px max(var(--page-pad), calc((100vw - 1440px) / 2 + 72px));
+  transform: none;
+  border: 0;
+  border-bottom: 1px solid rgba(7, 17, 13, 0.14);
+  border-radius: 0;
+  background: rgba(243, 244, 239, 0.9);
+  box-shadow: none;
+}
+
+.nav-shell.is-scrolled {
+  border-color: rgba(7, 17, 13, 0.2);
+  background: rgba(243, 244, 239, 0.97);
+  box-shadow: 0 10px 30px rgba(7, 17, 13, 0.05);
+}
+
+.section-key {
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.section-track {
+  position: relative;
+  width: 38px;
+  height: 16px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.section-track i {
+  position: absolute;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left center;
+}
+
+.section-track i:nth-child(1) {
+  top: 4px;
+  width: 31px;
+}
+
+.section-track i:nth-child(2) {
+  top: 8px;
+  width: 20px;
+  transform: rotate(-24deg);
+}
+
+.section-track i:nth-child(3) {
+  top: 12px;
+  left: 15px;
+  width: 23px;
+}
+
+.section-key--hero .section-track i:nth-child(2),
+.trust-key .section-track i:nth-child(2) {
+  background: var(--accent);
+}
+
+.mechanism-rail {
+  position: relative;
+  isolation: isolate;
+  --route-progress: 0%;
+}
+
+.mechanism-rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 0;
+  width: var(--route-progress);
+  height: 7px;
+  transform: translateY(-50%);
+  background:
+    linear-gradient(var(--accent), var(--accent)) center / 100% 1px no-repeat,
+    repeating-linear-gradient(90deg, rgba(126,168,255,.72) 0 1px, transparent 1px 10px);
+  transition: width 430ms cubic-bezier(.2,.8,.2,1);
+  pointer-events: none;
+}
+
+.mechanism-rail > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mini-node.is-passed {
+  border-color: var(--accent-strong);
+  background: rgba(126,168,255,.075);
+}
+
+.mini-node.is-passed span {
+  color: var(--accent-strong);
+}
+
+.rail-spectrum span {
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+@media (max-width: 700px) {
+  .nav-shell {
+    top: 0;
+    width: 100%;
+    min-height: 64px;
+    padding: 8px 12px;
+  }
+
+  .mechanism-rail::after {
+    display: none;
+  }
+}
