@@ -73,11 +73,16 @@ jobs:
             <iframe id="site" src="./index.html" title="FinFlow QA viewport"></iframe>
             <script>
               const frame = document.getElementById('site');
-              const target = new URLSearchParams(location.search).get('target') || 'top';
+              const params = new URLSearchParams(location.search);
+              const target = params.get('target') || 'top';
+              const step = params.get('step');
               frame.addEventListener('load', () => {
                 const doc = frame.contentDocument;
                 doc.documentElement.style.scrollBehavior = 'auto';
                 doc.body.style.scrollBehavior = 'auto';
+                if (step) {
+                  doc.querySelector(`[data-step="${step}"]`)?.click();
+                }
                 if (target === 'top') {
                   frame.contentWindow.scrollTo(0, 0);
                 } else {
@@ -96,6 +101,7 @@ jobs:
           fi
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01-hero-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02b-mechanism-route-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism&step=route'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-outcomes-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23outcomes'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/04-trust-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23trust'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/05-hero-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
