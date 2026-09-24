@@ -189,7 +189,7 @@ function syncRailStates(data) {
     group.dataset.state = data.states[rail] || "available";
   });
 
-  const spectrum = $("#rail-spectrum span");
+  const spectrum = $$("#rail-spectrum span");
   spectrum.forEach((item, index) => {
     const rail = ["bank", "wallet", "card", "stablecoin", "cash"][index];
     if (!rail) return;
