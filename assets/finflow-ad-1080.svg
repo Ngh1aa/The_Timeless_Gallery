@@ -91,7 +91,7 @@
   <g transform="translate(72 890)">
     <line x1="0" y1="0" x2="936" y2="0" stroke="white" stroke-opacity="0.12"/>
     <text x="0" y="50" fill="#AAB6B1" font-family="Arial, sans-serif" font-size="22" font-weight="500">Move money with a clearer path to payout.</text>
-    <rect x="744" y="22" width="192" height="54" rx="12" fill="#65E4B8"/>
-    <text x="780" y="56" fill="#07111F" font-family="Arial, sans-serif" font-size="14" font-weight="700">Explore FinFlow  ↗</text>
+    <rect x="676" y="22" width="260" height="54" rx="12" fill="#65E4B8"/>
+    <text x="702" y="56" fill="#07111F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Explore Multi-Rail Settlement  ↗</text>
   </g>
 </svg>
