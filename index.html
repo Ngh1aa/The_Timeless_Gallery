@@ -23,7 +23,8 @@
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#mechanism">Mechanism</a>
-      <a href="#visibility">Visibility</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#trust">Trust</a>
       <a href="./ad-banner.html">Ad creative</a>
     </nav>
 
@@ -202,15 +203,80 @@
       </div>
     </section>
 
-    <section class="visibility" id="visibility" aria-labelledby="visibility-title">
+    <section class="outcomes section-light" id="outcomes" aria-labelledby="outcomes-title">
+      <div class="section-shell">
+        <div class="outcomes-heading">
+          <p class="eyebrow eyebrow--dark">03 / OUTCOMES</p>
+          <div>
+            <h2 id="outcomes-title">One orchestration layer. <span>Fewer operational breakpoints.</span></h2>
+            <p>FinFlow does not decide your risk posture for you. The product concept reduces the manual handoffs that can make settlement slower, fragmented and harder to control.</p>
+          </div>
+        </div>
+
+        <div class="outcome-grid" aria-label="Illustrative FinFlow outcome architecture">
+          <article class="outcome-card outcome-card--signal">
+            <span class="outcome-status">Illustrative target</span>
+            <strong>1 API</strong>
+            <h3>One integration surface</h3>
+            <p>Connect to FinFlow once instead of maintaining a separate operating surface for each payout rail.</p>
+          </article>
+          <article class="outcome-card">
+            <span class="outcome-status">Illustrative capability</span>
+            <strong>Auto-failover</strong>
+            <h3>Recover around rail availability</h3>
+            <p>Move to the next eligible rail when the preferred path is unavailable, rather than leaving operators to recover manually.</p>
+          </article>
+          <article class="outcome-card">
+            <span class="outcome-status">Illustrative capability</span>
+            <strong>Cost / speed</strong>
+            <h3>Route with transaction context</h3>
+            <p>Evaluate corridor, priority and commercial constraints before route selection instead of choosing a rail manually.</p>
+          </article>
+          <article class="outcome-card">
+            <span class="outcome-status">Concept outcome</span>
+            <strong>1 trace</strong>
+            <h3>One settlement history</h3>
+            <p>Keep one reviewable settlement story across rail choices instead of stitching together separate partner logs.</p>
+          </article>
+        </div>
+
+        <div class="outcomes-disclaimer">
+          <span>Evidence note</span>
+          <p>These are illustrative product targets, not verified production metrics or committed capabilities. Replace them with measured integration, reliability, cost, settlement-time and reconciliation evidence before launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visibility" id="trust" aria-labelledby="trust-title">
       <div class="visibility-backdrop" aria-hidden="true"></div>
       <div class="section-shell visibility-shell">
         <div class="visibility-copy">
-          <p class="eyebrow"><span class="signal-dot"></span> 03 / VISIBILITY + CONVERSION</p>
-          <h2 id="visibility-title">Trust comes from seeing <span>what happens next.</span></h2>
+          <p class="eyebrow"><span class="signal-dot"></span> 04 / TRUST & CONTROL</p>
+          <h2 id="trust-title">Built around financial-infrastructure controls, <span>not feature-level opacity.</span></h2>
           <p class="visibility-lede">
-            FinFlow’s campaign concept focuses on operational clarity: where a payout instruction is, which rail was selected, and what stage comes next.
+            Every transaction in the FinFlow concept leaves an inspectable path for operations, compliance review and partner conversations — without pretending the product replaces your existing risk controls.
           </p>
+
+          <div class="trust-grid" aria-label="Illustrative trust and control principles">
+            <article>
+              <span>01</span>
+              <div><b>Concept principle</b><strong>Compliance-ready fit</strong><p>Fit existing AML/KYC workflows rather than replace them. Final policy, screening and control scope depends on implementation.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><b>Concept control</b><strong>Audit-ready traceability</strong><p>Preserve rail selection and settlement state as a reviewable transaction history for post-transaction investigation.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><b>Target principle</b><strong>Data-control posture</strong><p>Minimize unnecessary data movement. Encryption, residency and retention scope require product and security validation.</p></div>
+            </article>
+            <article>
+              <span>04</span>
+              <div><b>Core concept</b><strong>Transparent operations</strong><p>Keep rail state, selected path and routing context visible to operators rather than hiding the decision behind a black box.</p></div>
+            </article>
+          </div>
+
+          <p class="trust-disclaimer">Security certifications, audit scope, data controls and SLA commitments are intentionally not claimed in this prototype. Verified details should be supplied during product due diligence and onboarding.</p>
 
           <div class="trace-board" aria-label="Illustrative settlement trace">
             <div class="trace-board-head">
@@ -231,7 +297,7 @@
           <div class="conversion-glow" aria-hidden="true"></div>
           <p class="mono-label">SEE FINFLOW IN YOUR FLOW</p>
           <h3 id="demo-title">Bring one payout journey. See every rail around it.</h3>
-          <p>Share a little context and frame the demo around your settlement workflow.</p>
+          <p>Share one settlement workflow and frame the demo around your corridor, payout destination and operating constraints.</p>
 
           <form class="demo-form" data-demo-form>
             <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
@@ -244,7 +310,7 @@
                 <label><input type="radio" name="role" value="Other"><span>Other</span></label>
               </div>
             </fieldset>
-            <button class="button button--signal button--full" type="submit">Request a demo <span aria-hidden="true">↗</span></button>
+            <button class="button button--signal button--full" type="submit">Request a workflow demo <span aria-hidden="true">↗</span></button>
             <p class="form-note">Prototype only — no information is transmitted.</p>
             <div class="form-success" role="status" aria-live="polite" hidden><span>✓</span><div><strong>Demo request staged.</strong><small>This concept does not send data.</small></div></div>
           </form>
