@@ -69,3 +69,25 @@ Motion must explain routing:
 - no decorative gradients as primary identity
 - no fake certifications, customer logos or performance metrics
 - no section identity based only on monospace uppercase labels
+
+
+## V4 refinement — removing the last template cues
+
+### Visual audit finding
+V3 solved the large structural issues (12-column grid, semantic state colors, route path drawing and custom switch-track geometry), but two patterns still felt generic:
+- floating rounded navigation shell;
+- circular numbered section badges that still resembled common AI/SaaS template section markers.
+
+### V4 decisions
+1. **Navigation becomes an architectural top rail** rather than a floating pill.
+2. **Section identity uses the FinFlow switch-track glyph** instead of numbered eyebrow/badge treatment.
+3. **Mechanism motion now progresses through the six-step rail itself**, so the educational flow visually advances instead of only changing copy.
+4. **Rail-spectrum state is synchronized to the active payout scenario**, preventing the inspector from showing stale semantic state.
+5. Existing muted cobalt / green / red-brown state colors remain because they are functional semantics, not decorative brand color.
+
+### Reference takeaways
+- Modern Treasury: operational payment infrastructure should expose real system state and reduce manual operational complexity.
+- Column: sparse banking-infrastructure composition and strong proof hierarchy can feel technical without becoming cyberpunk.
+- Mercury: warm restraint and direct product language can soften finance without weakening trust.
+- Airwallex: buyer-facing value should remain explicit even when the product is infrastructure-heavy.
+- 21st.dev / Flux UI / Animata: motion is used as a state explanation pattern, not as ambient decoration.

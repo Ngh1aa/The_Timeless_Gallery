@@ -189,6 +189,13 @@ function syncRailStates(data) {
     group.dataset.state = data.states[rail] || "available";
   });
 
+  const spectrum = $("#rail-spectrum span");
+  spectrum.forEach((item, index) => {
+    const rail = ["bank", "wallet", "card", "stablecoin", "cash"][index];
+    if (!rail) return;
+    item.dataset.state = data.states[rail] || "available";
+  });
+
   const signalDecision = $("#signal-decision");
   if (signalDecision) signalDecision.textContent = "Selected";
 }
@@ -320,9 +327,20 @@ function setInspectorStep(key, { focus = false } = {}) {
     if (active && focus) tab.focus();
   });
 
+  const orderedSteps = ["receive", "analyze", "orchestrate", "route", "settle", "payout"];
+  const activeIndex = orderedSteps.indexOf(key);
+
   $$("[data-mini]").forEach((node) => {
+    const nodeIndex = orderedSteps.indexOf(node.dataset.mini);
     node.classList.toggle("is-current", node.dataset.mini === key);
+    node.classList.toggle("is-passed", nodeIndex >= 0 && nodeIndex < activeIndex);
   });
+
+  const mechanismRail = $(".mechanism-rail");
+  if (mechanismRail) {
+    const progress = activeIndex <= 0 ? 0 : (activeIndex / (orderedSteps.length - 1)) * 100;
+    mechanismRail.style.setProperty("--route-progress", `${progress}%`);
+  }
 }
 
 stepTabs.forEach((tab, index) => {
