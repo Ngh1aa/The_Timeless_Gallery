@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="FinFlow — Multi-Rail Settlement infrastructure for Money Transfer Operators and Payment Service Providers." />
-  <meta name="theme-color" content="#07110d" />
+  <meta name="theme-color" content="#f6f3ec" />
   <title>FinFlow — Multi-Rail Settlement for MTOs & PSPs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./finflow.css" />
   <script src="./finflow.js" defer></script>
 </head>
@@ -290,7 +290,7 @@
         <div class="section-key trust-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Trust & control</span></div>
 
         <div class="trust-heading">
-          <h2 id="trust-title">Financial infrastructure earns trust by exposing the <span>state of the system.</span></h2>
+          <h2 id="trust-title">Financial infrastructure earns trust by exposing the <em>state of the system.</em></h2>
           <p>FinFlow’s concept keeps route choice, transaction state and operational context reviewable without pretending to replace an MTO or PSP’s existing risk controls.</p>
         </div>
 
@@ -315,29 +315,32 @@
           <p class="trace-disclaimer">Illustrative interface concept. Exact routing criteria, compliance controls and operational states depend on FinFlow’s final product implementation.</p>
         </div>
 
-        <aside class="conversion-panel" id="request-demo" aria-labelledby="demo-title">
-          <span class="conversion-kicker">Workflow demo</span>
-          <h3 id="demo-title">Bring one payout journey. See every rail around it.</h3>
-          <p>Share one settlement workflow and frame the demo around your corridor, payout destination and operating constraints.</p>
-
-          <form class="demo-form" data-demo-form>
-            <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
-            <label><span>Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company name" required></label>
-            <fieldset>
-              <legend>I'm evaluating FinFlow as a</legend>
-              <div class="role-options">
-                <label><input type="radio" name="role" value="MTO" checked><span>MTO</span></label>
-                <label><input type="radio" name="role" value="PSP"><span>PSP</span></label>
-                <label><input type="radio" name="role" value="Other"><span>Other</span></label>
-              </div>
-            </fieldset>
-            <button class="button button--primary button--full" type="submit">Request a workflow demo <span aria-hidden="true">↗</span></button>
-            <p class="form-note">Prototype only — no information is transmitted.</p>
-            <div class="form-success" role="status" aria-live="polite" hidden><span>✓</span><div><strong>Demo request staged.</strong><small>This concept does not send data.</small></div></div>
-          </form>
-        </aside>
-
         <p class="trust-disclaimer">Security certifications, audit scope, data controls and SLA commitments are intentionally not claimed in this prototype. Verified details should be supplied during due diligence and onboarding.</p>
+      </div>
+    </section>
+
+    <section class="cta-section" id="request-demo" aria-labelledby="demo-title">
+      <div class="cta-shell">
+        <div class="cta-seal" aria-hidden="true">F</div>
+        <span class="conversion-kicker">Workflow demo</span>
+        <h2 id="demo-title">Bring one payout journey. <em>See every rail around it.</em></h2>
+        <p>Share one settlement workflow and frame the demo around your corridor, payout destination and operating constraints.</p>
+
+        <form class="demo-form" data-demo-form>
+          <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label><span>Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company name" required></label>
+          <fieldset>
+            <legend>I'm evaluating FinFlow as a</legend>
+            <div class="role-options">
+              <label><input type="radio" name="role" value="MTO" checked><span>MTO</span></label>
+              <label><input type="radio" name="role" value="PSP"><span>PSP</span></label>
+              <label><input type="radio" name="role" value="Other"><span>Other</span></label>
+            </div>
+          </fieldset>
+          <button class="button button--primary button--full" type="submit">Request a workflow demo <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Prototype only — no information is transmitted.</p>
+          <div class="form-success" role="status" aria-live="polite" hidden><span>✓</span><div><strong>Demo request staged.</strong><small>This concept does not send data.</small></div></div>
+        </form>
       </div>
     </section>
   </main>
