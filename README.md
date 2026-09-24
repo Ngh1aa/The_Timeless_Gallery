@@ -5,26 +5,24 @@ Recruitment-test concept for a B2B FinTech product serving **Money Transfer Oper
 ## Deliverables
 - Responsive desktop-first landing page
 - Three conversion-critical sections
-- Interactive multi-rail routing prototype
+- Interactive multi-rail **Control Plane**
+- Interactive six-step route inspector
+- Settlement trace + demo conversion surface
 - Facebook / Instagram 1:1 ad creative
 - Editable 1080×1080 SVG ad asset
 
-## Preview
-Open `index.html`.
-
-Ad creative:
-- `ad-banner.html`
-- `assets/finflow-ad-1080.svg`
+## Live preview
+GitHub Pages deploys from `main` through `.github/workflows/pages.yml`.
 
 ## Design direction
-**Precise · Connected · Assured**
+**Precise · Operational · Assured**
 
-The core visual metaphor is a **Settlement Switchboard**: one transaction enters FinFlow, multiple eligible settlement rails stay visible, and the selected route becomes the only high-contrast path.
+The signature visual is a **Control Plane**: one payout instruction enters FinFlow, all five settlement rails remain visible, and only the selected path becomes high contrast.
 
-See [PROJECT-CONTEXT.md](./PROJECT-CONTEXT.md) for the UX rationale, evidence rules and design-system notes.
+Research inputs include UIUX Factory operating rules plus pattern research from 21st.dev, Flux UI, Animata, HuggingPT UI prompts, UIAI, Bmob and Kyla prompt libraries. See [REDESIGN-RESEARCH.md](./REDESIGN-RESEARCH.md).
 
 ## Implementation
-No build step is required.
+No framework build step is required.
 
 ```text
 index.html
@@ -33,6 +31,7 @@ finflow.js
 ad-banner.html
 assets/finflow-ad-1080.svg
 PROJECT-CONTEXT.md
+REDESIGN-RESEARCH.md
 ```
 
-The previous Timeless Gallery build remains in the repository history and its original nested asset folder has not been deleted by this redesign branch.
+The project intentionally avoids fake performance numbers, customer logos, certifications or testimonials that are not present in the recruitment brief.

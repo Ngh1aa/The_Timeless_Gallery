@@ -1,7 +1,10 @@
-name: Deploy FinFlow to GitHub Pages
+name: FinFlow QA + GitHub Pages
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -12,12 +15,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: finflow-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   qa:
-    name: Static QA
+    name: Static + Visual QA
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,18 +46,71 @@ jobs:
           print("Required FinFlow assets are present.")
           PY
 
-      - name: Smoke test static site
+      - name: Start static server
         run: |
           python3 -m http.server 4173 >/tmp/finflow-http.log 2>&1 &
-          SERVER_PID=$!
-          trap 'kill $SERVER_PID' EXIT
+          echo $! > /tmp/finflow-http.pid
           sleep 2
           curl --fail --silent --show-error http://127.0.0.1:4173/ >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/ad-banner.html >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/assets/finflow-ad-1080.svg >/dev/null
 
+      - name: Capture rendered QA evidence
+        run: |
+          mkdir -p qa-evidence
+          cat > _qa_capture.html <<'HTML'
+          <!doctype html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+              html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07110d}
+              iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+            </style>
+          </head>
+          <body>
+            <iframe id="site" src="./index.html" title="FinFlow QA viewport"></iframe>
+            <script>
+              const frame = document.getElementById('site');
+              const target = new URLSearchParams(location.search).get('target') || 'top';
+              frame.addEventListener('load', () => {
+                const doc = frame.contentDocument;
+                doc.documentElement.style.scrollBehavior = 'auto';
+                doc.body.style.scrollBehavior = 'auto';
+                if (target === 'top') {
+                  frame.contentWindow.scrollTo(0, 0);
+                } else {
+                  doc.querySelector(target)?.scrollIntoView({ block: 'start', inline: 'nearest' });
+                }
+              });
+            </script>
+          </body>
+          </html>
+          HTML
+
+          CHROME="$(command -v google-chrome || command -v chromium-browser || command -v chromium)"
+          if [ -z "$CHROME" ]; then
+            echo "Chrome/Chromium is unavailable on runner"
+            exit 1
+          fi
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/01-hero-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-visibility-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23visibility'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/04-hero-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1080,1080 --screenshot=qa-evidence/05-ad-creative.png http://127.0.0.1:4173/assets/finflow-ad-1080.svg
+          ls -lh qa-evidence
+
+      - name: Upload visual QA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: finflow-visual-qa
+          path: qa-evidence
+          if-no-files-found: error
+
   build:
     name: Build Pages artifact
+    if: github.event_name != 'pull_request'
     needs: qa
     runs-on: ubuntu-latest
     steps:
@@ -78,6 +134,7 @@ jobs:
 
   deploy:
     name: Deploy
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
