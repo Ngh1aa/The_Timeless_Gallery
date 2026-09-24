@@ -330,7 +330,7 @@ function setInspectorStep(key, { focus = false } = {}) {
   const orderedSteps = ["receive", "analyze", "orchestrate", "route", "settle", "payout"];
   const activeIndex = orderedSteps.indexOf(key);
 
-  $("[data-mini]").forEach((node) => {
+  $$("[data-mini]").forEach((node) => {
     const nodeIndex = orderedSteps.indexOf(node.dataset.mini);
     node.classList.toggle("is-current", node.dataset.mini === key);
     node.classList.toggle("is-passed", nodeIndex >= 0 && nodeIndex < activeIndex);
