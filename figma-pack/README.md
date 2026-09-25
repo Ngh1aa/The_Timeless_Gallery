@@ -1,17 +1,18 @@
-# FinFlow — 13-frame Figma conversion pack
+# FinFlow — 14-frame Figma conversion pack
 
 Canonical hub:
 
 `/figma-pack/`
 
-## 13 frames
+## 14 standalone frames
 
 1. Project Overview
 2. Research & Insights
 3. Product Strategy
 4. Information Architecture
 5. User Flows + Content Strategy
-6. Wireframes & Exploration — **desktop + mobile wireframes**
+6. Desktop Wireframe — **true grayscale / no imagery**
+6A. Mobile Wireframe — **true grayscale / no imagery**
 7. Visual Foundations
 8. Components & States
 9. Final Landing — Desktop
@@ -23,11 +24,13 @@ Canonical hub:
 ## Conversion rules
 
 - Convert each standalone URL separately.
+- Desktop and mobile wireframes are separate HTML pages for cleaner Figma conversion.
 - Typography is Inter 400 / 500 / 600 / 700 only.
 - Meaningful copy remains real HTML text.
 - No canvas-rendered text.
 - No SVG text is used for meaningful case-study copy.
+- Wireframe frames contain no image, SVG or canvas assets.
+- Wireframes use only black / white / gray structural primitives.
 - Final UI frames are synchronized with the current light institutional FinFlow redesign.
-- Frame 06 intentionally combines desktop and mobile wireframes so the pack remains exactly 13 canonical links.
 
-Legacy A/B subframes were removed from the canonical pack after their content was consolidated into frames 02, 05, 06 and 08.
+The old combined wireframe page was removed after frames 06 and 06A were split.
