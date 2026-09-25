@@ -1569,9 +1569,8 @@ a:focus-visible {
 }
 
 .site-footer .brand { color: var(--ink); }
-.site-footer .brand-logo { width: 142px; }
-.site-footer .brand-logo__mark { color: var(--ink); }
 .site-footer .brand-mark { width: 26px; height: 26px; }
+.site-footer .brand-wordmark { font-size: 22px; }
 .site-footer p { margin: 0; text-align: center; }
 
 .site-footer > div {
