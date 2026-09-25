@@ -35,20 +35,14 @@ jobs:
           from pathlib import Path
           figma_frames = [
               Path("figma-pack/01-project-overview.html"),
-              Path("figma-pack/02-problem-audience.html"),
-              Path("figma-pack/02a-market-competitor-research.html"),
-              Path("figma-pack/02b-insights-opportunity.html"),
+              Path("figma-pack/02-research-insights.html"),
               Path("figma-pack/03-product-strategy.html"),
               Path("figma-pack/04-information-architecture.html"),
-              Path("figma-pack/04a-user-journey.html"),
-              Path("figma-pack/04b-core-user-flow.html"),
-              Path("figma-pack/05-content-conversion-strategy.html"),
-              Path("figma-pack/06-desktop-wireframe.html"),
-              Path("figma-pack/06a-mobile-wireframe.html"),
+              Path("figma-pack/05-user-flows-content-strategy.html"),
+              Path("figma-pack/06-wireframes-exploration.html"),
               Path("figma-pack/07-visual-foundations.html"),
               Path("figma-pack/08-components-states.html"),
               Path("figma-pack/09-final-landing-desktop.html"),
-              Path("figma-pack/09a-route-inspector-states.html"),
               Path("figma-pack/10-final-landing-mobile.html"),
               Path("figma-pack/11-paid-social-ad.html"),
               Path("figma-pack/12-validation-qa.html"),
@@ -68,12 +62,12 @@ jobs:
           missing = [str(path) for path in required if not path.is_file()]
           if missing:
               raise SystemExit("Missing required files: " + ", ".join(missing))
-          print("Required FinFlow + 19-frame Figma assets are present.")
+          print("Required FinFlow + 13-frame Figma assets are present.")
 
           hub = Path("figma-pack/index.html").read_text(encoding="utf-8")
           direct_links = [path.name for path in figma_frames if f'href="./{path.name}"' in hub]
-          if len(direct_links) != 19:
-              raise SystemExit(f"Figma hub must expose 19 direct standalone links; found {len(direct_links)}.")
+          if len(direct_links) != 13:
+              raise SystemExit(f"Figma hub must expose 13 direct standalone links; found {len(direct_links)}.")
           for path in figma_frames:
               frame_html = path.read_text(encoding="utf-8")
               if "Inter Tight" in frame_html or "IBM Plex Mono" in frame_html:
@@ -84,7 +78,7 @@ jobs:
                   raise SystemExit(f"Case-study frame is too thin ({len(frame_html)} chars): {path}.")
               if frame_html.count('class="case-section"') < 3:
                   raise SystemExit(f"Case-study depth guard failed; expected at least 3 rich sections in {path}.")
-          print("19 direct Figma links, Inter-only typography and case-study depth verified.")
+          print("13 direct Figma links, Inter-only typography and case-study depth verified.")
 
           html = Path("index.html").read_text(encoding="utf-8")
           section_ids = []
@@ -114,6 +108,8 @@ jobs:
           curl --fail --silent --show-error http://127.0.0.1:4173/assets/finflow-ad-1080.svg >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/ >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/01-project-overview.html >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/02-research-insights.html >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/06-wireframes-exploration.html >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/09-final-landing-desktop.html >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/13-success-metrics-next-steps.html >/dev/null
 
@@ -182,7 +178,8 @@ jobs:
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/07-trust-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23trust'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1080,1080 --screenshot=qa-evidence/08-ad-creative.png http://127.0.0.1:4173/assets/finflow-ad-1080.svg
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/09-figma-overview.png http://127.0.0.1:4173/figma-pack/01-project-overview.html
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/10-figma-research.png http://127.0.0.1:4173/figma-pack/02a-market-competitor-research.html
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/10-figma-research.png http://127.0.0.1:4173/figma-pack/02-research-insights.html
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/10b-figma-wireframes.png http://127.0.0.1:4173/figma-pack/06-wireframes-exploration.html
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/11-figma-design-system.png http://127.0.0.1:4173/figma-pack/07-visual-foundations.html
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/12-figma-final-ui.png http://127.0.0.1:4173/figma-pack/09-final-landing-desktop.html
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1440,1600 --screenshot=qa-evidence/13-figma-metrics.png http://127.0.0.1:4173/figma-pack/13-success-metrics-next-steps.html

@@ -1,27 +1,33 @@
-# FinFlow — Figma conversion pack
+# FinFlow — 13-frame Figma conversion pack
 
-This folder contains **19 standalone static HTML frames** optimized for HTML → Figma conversion.
+Canonical hub:
 
-## Conversion-safe rules
-- **Inter only**: 400 / 500 / 600 / 700.
-- Every heading, label, metric and operational datum is real HTML text.
-- No Inter Tight.
-- No IBM Plex Mono.
-- No SVG text inside the 19 standalone frames.
+`/figma-pack/`
+
+## 13 frames
+
+1. Project Overview
+2. Research & Insights
+3. Product Strategy
+4. Information Architecture
+5. User Flows + Content Strategy
+6. Wireframes & Exploration — **desktop + mobile wireframes**
+7. Visual Foundations
+8. Components & States
+9. Final Landing — Desktop
+10. Final Landing — Mobile
+11. Paid Social Ad — 1:1
+12. Validation & QA
+13. Success Metrics & Next Steps
+
+## Conversion rules
+
+- Convert each standalone URL separately.
+- Typography is Inter 400 / 500 / 600 / 700 only.
+- Meaningful copy remains real HTML text.
 - No canvas-rendered text.
-- No CSS-generated content for meaningful copy.
-- No JavaScript injection is required by the 19 standalone frames.
-- Each frame has its own direct GitHub Pages URL.
-- The FinFlow symbol remains an image asset by design; the FinFlow wordmark beside it is HTML text.
+- No SVG text is used for meaningful case-study copy.
+- Final UI frames are synchronized with the current light institutional FinFlow redesign.
+- Frame 06 intentionally combines desktop and mobile wireframes so the pack remains exactly 13 canonical links.
 
-## Entry point
-Open `/figma-pack/` to see the full 19-frame hub, then convert each standalone page separately.
-
-## Recommended conversion workflow
-1. Open a standalone frame URL.
-2. Confirm Inter is loaded.
-3. Convert that URL with the HTML → Figma tool.
-4. In Figma, verify headings, labels and operational values are text layers.
-5. If any copy is rasterized, make sure the converter is not importing the SVG ad asset or a screenshot of the page.
-
-The main FinFlow landing and ad-preview page are also normalized to Inter so typography stays consistent across handoff surfaces.
+Legacy A/B subframes were removed from the canonical pack after their content was consolidated into frames 02, 05, 06 and 08.
