@@ -1,36 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>13 — Success Metrics & Next Steps · FinFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./pack.css">
-</head>
-<body>
-<div class="page">
-<header class="topbar">
-<a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a>
-<div class="top-meta"><span>06 — MEASURE & DELIVER</span><b>13</b></div>
-</header>
-<main class="main">
-<section class="intro"><div class="page-code">13</div><div><h1>Success Metrics & Next Steps</h1><p>Because this is a recruitment prototype, success metrics are hypotheses to instrument after launch — not fabricated results.</p></div></section>
-
-<div class="grid-3">
-  <article class="card metric-card"><span>COMPREHENSION</span><h3>Route mechanism understood</h3><p>Measure interaction with scenario switching and mechanism steps.</p></article>
-  <article class="card metric-card"><span>INTENT</span><h3>Qualified demo interest</h3><p>Track CTA progression from hero and final decision surface.</p></article>
-  <article class="card metric-card"><span>FRICTION</span><h3>Drop-off before trust</h3><p>Identify where buyers stop before reviewing evidence and conversion.</p></article>
-</div>
-<div class="next">
-  <div class="label" style="color:#9aa8b8;margin-bottom:8px">NEXT ITERATION</div>
-  <div class="next-row"><b>01</b><span>User-test terminology with real MTO / PSP operators.</span></div>
-  <div class="next-row"><b>02</b><span>Validate which routing context belongs in the control plane.</span></div>
-  <div class="next-row"><b>03</b><span>Instrument interaction and CTA events in production.</span></div>
-  <div class="next-row"><b>04</b><span>Revise from observed behavior rather than assumed preference.</span></div>
-</div>
-</main>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>13 — Success Metrics & Next Steps · FinFlow</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./pack.css"></head><body><div class="page"><header class="topbar"><a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a><div class="top-meta"><span>06 — MEASURE & DELIVER</span><b>13</b></div></header><main class="main"><section class="intro"><div class="page-code">13</div><div><h1>Success Metrics & Next Steps</h1><p>Because FinFlow is a recruitment prototype, this frame defines what should be instrumented and learned after launch rather than inventing performance results. Metrics connect comprehension, engagement, trust and qualified demo intent.</p></div></section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Measurement model</div><div><h2>Measure whether people understand the product before optimizing conversion.</h2><p>A high CTA rate is not useful if users misunderstand what FinFlow does. The measurement tree therefore starts with comprehension and interaction quality, then moves toward qualified intent.</p></div></div>
+  <div class="metric-tree">
+    <div class="metric-branch"><h3>Product comprehension</h3><div class="metric-line"><b>Hero comprehension</b><span>Can the user identify audience, product role and core mechanism?</span></div><div class="metric-line"><b>Route-state comprehension</b><span>Can the user identify selected / available / unavailable states?</span></div><div class="metric-line"><b>Mechanism comprehension</b><span>Can the user explain the six-step journey in their own words?</span></div></div>
+    <div class="metric-branch"><h3>Behavioral intent</h3><div class="metric-line"><b>Scenario interaction rate</b><span>Do evaluators explore more than the default payout state?</span></div><div class="metric-line"><b>Mechanism depth</b><span>How far do users engage with the six-step inspector?</span></div><div class="metric-line"><b>Qualified demo progression</b><span>Do users who inspect the product continue to the workflow-demo action?</span></div></div>
+    <div class="metric-branch"><h3>Friction signals</h3><div class="metric-line"><b>Early exit</b><span>Drop-off before users reach the mechanism section.</span></div><div class="metric-line"><b>Interaction abandonment</b><span>Scenario or mechanism controls used once and immediately abandoned.</span></div><div class="metric-line"><b>CTA confusion</b><span>Clicks or user-test feedback indicating unclear demo expectations.</span></div></div>
+    <div class="metric-branch"><h3>Counter-metrics</h3><div class="metric-line"><b>Misinterpretation</b><span>Users believe the simulated route reflects real production logic.</span></div><div class="metric-line"><b>Overemphasis</b><span>Users think FinFlow is primarily a stablecoin product.</span></div><div class="metric-line"><b>Accessibility regressions</b><span>Interaction growth should not come at the cost of keyboard, motion or readability quality.</span></div></div>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Event plan</div><div><h2>Suggested analytics events for a production implementation.</h2></div></div>
+  <div class="event-grid">
+    <article class="event-card"><code>hero_view</code><p>Landing becomes visible with campaign/source context.</p></article>
+    <article class="event-card"><code>scenario_select</code><p>Wallet / Bank / Cash selection with previous and next state.</p></article>
+    <article class="event-card"><code>route_replay</code><p>User intentionally replays the routing animation.</p></article>
+    <article class="event-card"><code>mechanism_step_view</code><p>Current step and navigation source.</p></article>
+    <article class="event-card"><code>trust_section_view</code><p>User reaches the evidence / trust surface.</p></article>
+    <article class="event-card"><code>demo_cta_click</code><p>Placement: nav, hero or final conversion surface.</p></article>
+    <article class="event-card"><code>demo_start</code><p>User enters the workflow-demo process.</p></article>
+    <article class="event-card"><code>demo_complete</code><p>Qualified submission / booking when a production flow exists.</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Metric integrity</div><div><h2>No fake targets.</h2><p>Baseline and target values remain TBD until a real traffic source, sample size and business definition of a qualified demo are available.</p></div></div>
+  <table class="matrix"><thead><tr><th>Metric</th><th>Baseline</th><th>Target</th><th>Why not invented</th></tr></thead><tbody>
+    <tr><td><strong>Hero comprehension</strong></td><td>NO_DATA</td><td>TBD after user test</td><td>Requires real participant responses.</td></tr>
+    <tr><td><strong>Scenario interaction</strong></td><td>NO_DATA</td><td>TBD after instrumentation</td><td>Requires production traffic and event tracking.</td></tr>
+    <tr><td><strong>Qualified demo rate</strong></td><td>NO_DATA</td><td>TBD with sales definition</td><td>Requires a real conversion flow and qualification criteria.</td></tr>
+    <tr><td><strong>Drop-off before trust</strong></td><td>NO_DATA</td><td>TBD after funnel baseline</td><td>Requires live funnel behavior.</td></tr>
+  </tbody></table>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Next iteration loop</div><div><h2>Research → instrument → observe → revise.</h2></div></div>
+  <div class="timeline">
+    <article class="timeline-step"><b>01</b><h3>User-test terminology</h3><p>Validate “rail,” “orchestration” and “workflow demo” with relevant roles.</p></article>
+    <article class="timeline-step"><b>02</b><h3>Validate routing context</h3><p>Identify which inputs operators expect to see before trusting a route selection.</p></article>
+    <article class="timeline-step"><b>03</b><h3>Instrument events</h3><p>Track scenario, mechanism and CTA behavior with source context.</p></article>
+    <article class="timeline-step"><b>04</b><h3>Establish baseline</h3><p>Observe comprehension and funnel behavior before setting targets.</p></article>
+    <article class="timeline-step"><b>05</b><h3>Prioritize evidence</h3><p>Add proof that users actually need rather than generic social proof.</p></article>
+    <article class="timeline-step"><b>06</b><h3>Revise the system</h3><p>Update content, state model and interaction based on observed failures.</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="note-strip"><b>Outcome status</b><p>The current project demonstrates design reasoning and implemented interaction quality. It does not claim business lift, user success or production readiness until those outcomes are measured with real evidence.</p></div>
+</section></main></div></body></html>
