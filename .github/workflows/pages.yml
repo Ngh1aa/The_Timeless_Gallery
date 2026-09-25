@@ -80,7 +80,11 @@ jobs:
                   raise SystemExit(f"Non-Inter font reference found in {path}.")
               if "family=Inter:wght@400;500;600;700" not in frame_html:
                   raise SystemExit(f"Expected Inter 400/500/600/700 import missing in {path}.")
-          print("19 direct Figma links and Inter-only frame typography verified.")
+              if len(frame_html) < 3800:
+                  raise SystemExit(f"Case-study frame is too thin ({len(frame_html)} chars): {path}.")
+              if frame_html.count('class="case-section"') < 3:
+                  raise SystemExit(f"Case-study depth guard failed; expected at least 3 rich sections in {path}.")
+          print("19 direct Figma links, Inter-only typography and case-study depth verified.")
 
           html = Path("index.html").read_text(encoding="utf-8")
           section_ids = []
