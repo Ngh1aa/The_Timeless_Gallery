@@ -111,28 +111,27 @@ button { border: 0; }
   width: fit-content;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--paper-text);
+}
+
+.brand-logo {
+  width: 154px;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.brand-logo__wordmark {
+  fill: currentColor;
   font-family: var(--display);
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: .02em;
+  letter-spacing: -1.05px;
 }
 
-.brand-mark {
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
-  font-family: var(--mono);
-  font-size: 12px;
-  line-height: 1;
+.brand-logo__mark {
+  color: var(--paper-text);
 }
-
-.brand-mark::before { content: "F"; }
-.brand-mark i { display: none; }
 
 .nav-links {
   display: flex;
@@ -1571,7 +1570,9 @@ a:focus-visible {
   font-size: 12px;
 }
 
-.site-footer .brand { color: var(--ink); font-size: 17px; }
+.site-footer .brand { color: var(--ink); }
+.site-footer .brand-logo { width: 142px; }
+.site-footer .brand-logo__mark { color: var(--ink); }
 .site-footer .brand-mark { width: 26px; height: 26px; }
 .site-footer p { margin: 0; text-align: center; }
 
