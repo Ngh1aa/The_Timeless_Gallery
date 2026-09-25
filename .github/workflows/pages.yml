@@ -33,17 +33,54 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          figma_frames = [
+              Path("figma-pack/01-project-overview.html"),
+              Path("figma-pack/02-problem-audience.html"),
+              Path("figma-pack/02a-market-competitor-research.html"),
+              Path("figma-pack/02b-insights-opportunity.html"),
+              Path("figma-pack/03-product-strategy.html"),
+              Path("figma-pack/04-information-architecture.html"),
+              Path("figma-pack/04a-user-journey.html"),
+              Path("figma-pack/04b-core-user-flow.html"),
+              Path("figma-pack/05-content-conversion-strategy.html"),
+              Path("figma-pack/06-desktop-wireframe.html"),
+              Path("figma-pack/06a-mobile-wireframe.html"),
+              Path("figma-pack/07-visual-foundations.html"),
+              Path("figma-pack/08-components-states.html"),
+              Path("figma-pack/09-final-landing-desktop.html"),
+              Path("figma-pack/09a-route-inspector-states.html"),
+              Path("figma-pack/10-final-landing-mobile.html"),
+              Path("figma-pack/11-paid-social-ad.html"),
+              Path("figma-pack/12-validation-qa.html"),
+              Path("figma-pack/13-success-metrics-next-steps.html"),
+          ]
           required = [
               Path("index.html"),
               Path("finflow.css"),
               Path("finflow.js"),
               Path("ad-banner.html"),
               Path("assets/finflow-ad-1080.svg"),
+              Path("assets/finflow-mark.svg"),
+              Path("figma-pack/index.html"),
+              Path("figma-pack/pack.css"),
+              *figma_frames,
           ]
           missing = [str(path) for path in required if not path.is_file()]
           if missing:
               raise SystemExit("Missing required files: " + ", ".join(missing))
-          print("Required FinFlow assets are present.")
+          print("Required FinFlow + 19-frame Figma assets are present.")
+
+          hub = Path("figma-pack/index.html").read_text(encoding="utf-8")
+          direct_links = [path.name for path in figma_frames if f'href="./{path.name}"' in hub]
+          if len(direct_links) != 19:
+              raise SystemExit(f"Figma hub must expose 19 direct standalone links; found {len(direct_links)}.")
+          for path in figma_frames:
+              frame_html = path.read_text(encoding="utf-8")
+              if "Inter Tight" in frame_html or "IBM Plex Mono" in frame_html:
+                  raise SystemExit(f"Non-Inter font reference found in {path}.")
+              if "family=Inter:wght@400;500;600;700" not in frame_html:
+                  raise SystemExit(f"Expected Inter 400/500/600/700 import missing in {path}.")
+          print("19 direct Figma links and Inter-only frame typography verified.")
 
           html = Path("index.html").read_text(encoding="utf-8")
           section_ids = []
@@ -56,7 +93,11 @@ jobs:
               raise SystemExit("Legacy standalone outcomes/CTA sections must not return.")
           if "Playfair Display" in html:
               raise SystemExit("Playfair serif is not allowed in the Master Command V2 direction.")
-          print("Three-section and sans+mono structure verified.")
+          if "Inter Tight" in html or "IBM Plex Mono" in html:
+              raise SystemExit("Main landing must use Inter-only web typography.")
+          if "<text class=\"brand-logo__wordmark\"" in html:
+              raise SystemExit("Main FinFlow wordmark must remain HTML text, not SVG text.")
+          print("Three-section structure and Inter-only conversion typography verified.")
           PY
 
       - name: Start static server
@@ -67,6 +108,10 @@ jobs:
           curl --fail --silent --show-error http://127.0.0.1:4173/ >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/ad-banner.html >/dev/null
           curl --fail --silent --show-error http://127.0.0.1:4173/assets/finflow-ad-1080.svg >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/ >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/01-project-overview.html >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/09-final-landing-desktop.html >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/figma-pack/13-success-metrics-next-steps.html >/dev/null
 
       - name: Capture rendered QA evidence
         run: |
@@ -152,9 +197,10 @@ jobs:
 
       - name: Assemble deploy directory
         run: |
-          mkdir -p _site/assets
+          mkdir -p _site
           cp index.html finflow.css finflow.js ad-banner.html _site/
-          cp assets/finflow-ad-1080.svg _site/assets/
+          cp -R assets _site/assets
+          cp -R figma-pack _site/figma-pack
           touch _site/.nojekyll
 
       - name: Configure GitHub Pages
