@@ -59,10 +59,12 @@ The signature is operational rather than decorative: transaction context, rail a
 - Primary text uses three neutral contrast levels rather than decorative gradients.
 
 ### Typography
-- Display: Inter Tight.
-- Body/UI: Inter.
-- Operational data: IBM Plex Mono.
-- Large data values use tabular numerals.
+- One family across all web and Figma-conversion surfaces: **Inter**.
+- Display: Inter 700.
+- Body/UI: Inter 400 / 500 / 600.
+- Operational data: Inter 600 with tabular numerals where useful.
+- No Inter Tight or IBM Plex Mono in conversion surfaces.
+- Meaningful copy stays as HTML text rather than SVG text, canvas text or background-image text.
 - Educational copy uses relaxed 1.6–1.68 line-height.
 - Uppercase eyebrow labels are intentionally minimized.
 
