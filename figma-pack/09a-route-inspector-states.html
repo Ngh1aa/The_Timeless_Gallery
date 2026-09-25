@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09A — Route Inspector States · FinFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./pack.css">
+</head>
+<body>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a>
+<div class="top-meta"><span>05 — FINAL PRODUCT · UI & Responsive</span><b>09A</b></div>
+</header>
+<main class="main">
+<section class="intro"><div class="page-code">09A</div><div><h1>Route Inspector States</h1><p>Three key scenarios demonstrate that the control plane preserves the same grammar while the selected rail changes.</p></div></section>
+
+<div class="state-grid">
+  <article class="state-card"><header><b>Wallet payout</b><span>WALLET SELECTED</span></header><div class="control"><div class="instruction"><small>PAYOUT INSTRUCTION</small><strong>$2,840.00</strong><span>USD → PHP · WALLET</span></div><div class="engine">FinFlow</div><div class="rail-list"><div class="rail available"><b>Bank</b><em>AVAILABLE</em></div><div class="rail selected"><b>Wallet</b><em>SELECTED</em></div><div class="rail unavailable"><b>Card</b><em>UNAVAILABLE</em></div><div class="rail available"><b>Stablecoin</b><em>AVAILABLE</em></div><div class="rail available"><b>Cash payout</b><em>AVAILABLE</em></div></div></div></article>
+  <article class="state-card"><header><b>Bank payout</b><span>BANK SELECTED</span></header><div class="control"><div class="instruction"><small>PAYOUT INSTRUCTION</small><strong>$2,840.00</strong><span>USD → PHP · WALLET</span></div><div class="engine">FinFlow</div><div class="rail-list"><div class="rail selected"><b>Bank</b><em>SELECTED</em></div><div class="rail available"><b>Wallet</b><em>AVAILABLE</em></div><div class="rail unavailable"><b>Card</b><em>UNAVAILABLE</em></div><div class="rail available"><b>Stablecoin</b><em>AVAILABLE</em></div><div class="rail available"><b>Cash payout</b><em>AVAILABLE</em></div></div></div></article>
+  <article class="state-card"><header><b>Cash pickup</b><span>CASH SELECTED</span></header><div class="control"><div class="instruction"><small>PAYOUT INSTRUCTION</small><strong>$2,840.00</strong><span>USD → PHP · WALLET</span></div><div class="engine">FinFlow</div><div class="rail-list"><div class="rail available"><b>Bank</b><em>AVAILABLE</em></div><div class="rail available"><b>Wallet</b><em>AVAILABLE</em></div><div class="rail unavailable"><b>Card</b><em>UNAVAILABLE</em></div><div class="rail available"><b>Stablecoin</b><em>AVAILABLE</em></div><div class="rail selected"><b>Cash payout</b><em>SELECTED</em></div></div></div></article>
+</div>
+</main>
+</div>
+</body>
+</html>
