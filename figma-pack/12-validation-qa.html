@@ -1,35 +1,38 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>12 — Validation & QA · FinFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./pack.css">
-</head>
-<body>
-<div class="page">
-<header class="topbar">
-<a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a>
-<div class="top-meta"><span>06 — MEASURE & DELIVER</span><b>12</b></div>
-</header>
-<main class="main">
-<section class="intro"><div class="page-code">12</div><div><h1>Validation & QA</h1><p>The prototype is validated as a rendered experience: state synchronization, responsive behavior, accessibility and evidence discipline.</p></div></section>
-
-<div class="grid-4">
-  <article class="card"><div class="pass">PASS</div><h3>Rendered visual QA</h3><p>Desktop and mobile checked for overflow, clipping and hierarchy.</p></article>
-  <article class="card"><div class="pass">PASS</div><h3>Scenario state sync</h3><p>Wallet, Bank and Cash update rail and settlement state together.</p></article>
-  <article class="card"><div class="pass">PASS</div><h3>Responsive structure</h3><p>Network converts into a vertical operational stack on mobile.</p></article>
-  <article class="card"><div class="pass">PASS</div><h3>Evidence policy</h3><p>No fake metrics, certifications, customer logos or routing guarantees.</p></article>
-</div>
-<div class="grid-3" style="margin-top:20px">
-  <div class="card"><h3>Keyboard focus</h3><p>Interactive controls retain visible focus states.</p></div>
-  <div class="card"><h3>Reduced motion</h3><p>Continuous motion is removed when reduced motion is preferred.</p></div>
-  <div class="card"><h3>Semantic state</h3><p>Selected, available and unavailable remain visually distinct.</p></div>
-</div>
-</main>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>12 — Validation & QA · FinFlow</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./pack.css"></head><body><div class="page"><header class="topbar"><a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a><div class="top-meta"><span>06 — MEASURE & DELIVER</span><b>12</b></div></header><main class="main"><section class="intro"><div class="page-code">12</div><div><h1>Validation & QA</h1><p>Validation is separated into what has actually been verified on the implemented prototype and what still requires user research. Technical/rendered QA is documented as evidence; user comprehension remains a planned study rather than a fabricated result.</p></div></section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Verified prototype QA</div><div><h2>Checks that were actually run on the implemented site.</h2></div></div>
+  <table class="matrix"><thead><tr><th>Area</th><th>Status</th><th>What was checked</th><th>Evidence boundary</th></tr></thead><tbody>
+    <tr><td><strong>JavaScript syntax</strong></td><td><span class="qa-status pass">PASS</span></td><td>Repository CI syntax check for interaction code.</td><td>Confirms syntax, not product correctness.</td></tr>
+    <tr><td><strong>Required site files</strong></td><td><span class="qa-status pass">PASS</span></td><td>Landing, CSS, JS, ad creative and complete Figma pack are present.</td><td>Confirms build inputs exist.</td></tr>
+    <tr><td><strong>Rendered desktop / mobile</strong></td><td><span class="qa-status pass">PASS</span></td><td>CI captures representative screenshots for hero, mechanism, trust, conversion and mobile.</td><td>Visual evidence for implemented states.</td></tr>
+    <tr><td><strong>Scenario synchronization</strong></td><td><span class="qa-status pass">PASS</span></td><td>Bank scenario updates selected rail; mechanism route step updates current state.</td><td>Representative state checks, not exhaustive domain logic.</td></tr>
+    <tr><td><strong>Responsive structure</strong></td><td><span class="qa-status pass">PASS</span></td><td>Representative 1440px and 390px captures verify the layout transformation.</td><td>Does not replace broad device-lab testing.</td></tr>
+    <tr><td><strong>Evidence policy</strong></td><td><span class="qa-status pass">PASS</span></td><td>No fabricated customer logos, performance metrics or certifications in project content.</td><td>Content integrity, not legal/compliance certification.</td></tr>
+  </tbody></table>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Usability validation plan</div><div><h2>What still needs real users before making outcome claims.</h2><p>This study is planned, not claimed as completed.</p></div></div>
+  <div class="timeline">
+    <article class="timeline-step"><b>01</b><h3>Recruit</h3><p>Target payment operations, PSP product or related fintech infrastructure roles.</p></article>
+    <article class="timeline-step"><b>02</b><h3>First impression</h3><p>5-second comprehension: who is this for and what does FinFlow do?</p></article>
+    <article class="timeline-step"><b>03</b><h3>Route task</h3><p>Ask participants to explain which rail is selected and what alternatives remain.</p></article>
+    <article class="timeline-step"><b>04</b><h3>Mechanism task</h3><p>Have them narrate the six-step flow in their own words.</p></article>
+    <article class="timeline-step"><b>05</b><h3>Trust probe</h3><p>Ask what increases or reduces confidence in the product story.</p></article>
+    <article class="timeline-step"><b>06</b><h3>CTA test</h3><p>Assess whether “workflow demo” feels clear, useful and credible.</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Research questions</div><div><h2>What the next study should answer.</h2></div></div>
+  <div class="question-grid">
+    <article class="question"><span>RQ01</span><b>Can users explain FinFlow’s role after the hero?</b><p>Look for “orchestration layer across rails,” not just “payments company.”</p></article>
+    <article class="question"><span>RQ02</span><b>Are rail states unambiguous?</b><p>Participants should distinguish selected, available and unavailable without guidance.</p></article>
+    <article class="question"><span>RQ03</span><b>Does the six-step mechanism reduce uncertainty?</b><p>Test whether the sequence clarifies the settlement journey or adds cognitive load.</p></article>
+    <article class="question"><span>RQ04</span><b>Does inspectability create trust?</b><p>Identify which visible states matter and what proof is still missing.</p></article>
+    <article class="question"><span>RQ05</span><b>Is stablecoin proportionate in the story?</b><p>Ensure it reads as one rail, not as the main product narrative.</p></article>
+    <article class="question"><span>RQ06</span><b>Is the CTA meaningful?</b><p>Determine whether buyers understand what they would bring to the demo.</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Known limitations</div><div><h2>What the prototype cannot prove yet.</h2></div></div>
+  <div class="badges"><span class="qa-status planned">User comprehension — planned</span><span class="qa-status planned">Real-device testing — planned</span><span class="qa-status planned">Accessibility conformance audit — planned</span><span class="qa-status unknown">Conversion impact — unknown</span><span class="qa-status unknown">Production routing accuracy — not implemented</span></div>
+</section></main></div></body></html>

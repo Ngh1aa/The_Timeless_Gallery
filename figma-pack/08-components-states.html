@@ -1,30 +1,34 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>08 — Components & States · FinFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./pack.css">
-</head>
-<body>
-<div class="page">
-<header class="topbar">
-<a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a>
-<div class="top-meta"><span>04 — DESIGN SYSTEM</span><b>08</b></div>
-</header>
-<main class="main">
-<section class="intro"><div class="page-code">08</div><div><h1>Components & States</h1><p>Core components are structured as simple HTML text and CSS boxes so they remain editable after conversion.</p></div></section>
-
-<div class="grid-2">
-  <article class="card"><div class="label">BUTTONS</div><div style="display:flex;gap:8px;margin-top:16px"><span class="btn">REQUEST A WORKFLOW DEMO ↗</span><span class="btn secondary">Replay route ↻</span></div></article>
-  <article class="card"><div class="label">SCENARIO TABS</div><div class="tab-row" style="margin-top:16px"><span class="tab active">Wallet payout</span><span class="tab">Bank payout</span><span class="tab">Cash pickup</span></div></article>
-  <article class="card"><div class="label">RAIL STATES</div><div style="display:grid;gap:6px;margin-top:16px"><div class="rail selected"><b>Wallet</b><em>SELECTED</em></div><div class="rail available"><b>Bank</b><em>AVAILABLE</em></div><div class="rail unavailable"><b>Card</b><em>UNAVAILABLE</em></div></div></article>
-  <article class="card"><div class="label">OPERATIONAL DATA</div><p style="font-weight:600;margin-top:16px">USD → PHP · WALLET</p><p style="font-weight:600">TX08421 · ROUTED</p></article>
-</div>
-</main>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>08 — Components & States · FinFlow</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./pack.css"></head><body><div class="page"><header class="topbar"><a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a><div class="top-meta"><span>04 — DESIGN SYSTEM</span><b>08</b></div></header><main class="main"><section class="intro"><div class="page-code">08</div><div><h1>Components & States</h1><p>The component system turns FinFlow’s routing grammar into reusable UI primitives. Each interactive component has explicit default, selected, focus and disabled/error expectations rather than a single polished screenshot state.</p></div></section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Component inventory</div><div><h2>The smallest set of components needed to express the product model.</h2></div></div>
+  <div class="component-grid">
+    <article class="component-card"><h3>Primary CTA</h3><p>Workflow-demo action used in nav, hero and final conversion surface.</p><div class="state-list"><span class="state-chip current">Default</span><span class="state-chip">Hover</span><span class="state-chip">Focus</span><span class="state-chip">Disabled</span></div></article>
+    <article class="component-card"><h3>Scenario Tabs</h3><p>Wallet / Bank / Cash selectors for switching the route simulation.</p><div class="state-list"><span class="state-chip">Default</span><span class="state-chip current">Selected</span><span class="state-chip">Focus</span></div></article>
+    <article class="component-card"><h3>Rail Row</h3><p>One settlement option with a semantic state label and border treatment.</p><div class="state-list"><span class="state-chip current">Selected</span><span class="state-chip">Available</span><span class="state-chip">Unavailable</span></div></article>
+    <article class="component-card"><h3>Instruction Card</h3><p>Displays amount, corridor and payout type without pretending to be live production data.</p><div class="state-list"><span class="state-chip current">Default</span><span class="state-chip">Updated scenario</span></div></article>
+    <article class="component-card"><h3>Mechanism Step</h3><p>Six-step educational navigation with one current step at a time.</p><div class="state-list"><span class="state-chip">Default</span><span class="state-chip current">Current</span><span class="state-chip">Visited</span><span class="state-chip">Focus</span></div></article>
+    <article class="component-card"><h3>Settlement Trace</h3><p>Compact state history that mirrors the selected route and progression.</p><div class="state-list"><span class="state-chip current">Routed</span><span class="state-chip">Settling</span><span class="state-chip">Payout</span></div></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Rendered examples</div><div><h2>Core UI primitives in the Inter-only conversion system.</h2></div></div>
+  <div class="grid-2">
+    <article class="card"><div class="label">BUTTONS</div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><span class="btn">REQUEST A WORKFLOW DEMO ↗</span><span class="btn secondary">Replay route ↻</span></div></article>
+    <article class="card"><div class="label">SCENARIO TABS</div><div class="tab-row" style="margin-top:16px"><span class="tab active">Wallet payout</span><span class="tab">Bank payout</span><span class="tab">Cash pickup</span></div></article>
+    <article class="card"><div class="label">RAIL STATES</div><div style="display:grid;gap:6px;margin-top:16px"><div class="rail selected"><b>Wallet</b><em>SELECTED</em></div><div class="rail available"><b>Bank</b><em>AVAILABLE</em></div><div class="rail unavailable"><b>Card</b><em>UNAVAILABLE</em></div></div></article>
+    <article class="card"><div class="label">OPERATIONAL DATA</div><p style="font-weight:600;margin-top:16px">USD → PHP · WALLET</p><p style="font-weight:600">TX08421 · ROUTED</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Interaction contracts</div><div><h2>States must stay synchronized across components.</h2></div></div>
+  <table class="matrix"><thead><tr><th>User action</th><th>Owner component</th><th>Required downstream update</th><th>Failure to prevent</th></tr></thead><tbody>
+    <tr><td><strong>Select “Bank payout”</strong></td><td>Scenario tabs</td><td>Bank rail becomes SELECTED; prior route returns to AVAILABLE when valid; trace context updates.</td><td>Tab says Bank while diagram still shows Wallet.</td></tr>
+    <tr><td><strong>Select mechanism step</strong></td><td>Step navigation</td><td>Inspector title, copy and current mini-node update together.</td><td>Educational copy and visual state drift apart.</td></tr>
+    <tr><td><strong>Keyboard focus</strong></td><td>All interactive controls</td><td>Visible focus ring / state without layout shift.</td><td>Keyboard user cannot locate current control.</td></tr>
+    <tr><td><strong>Reduced motion</strong></td><td>Route animation</td><td>Continuous motion removed; semantic selected state remains.</td><td>Meaning depends on animation.</td></tr>
+  </tbody></table>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Accessibility baseline</div><div><h2>State is never encoded by color alone.</h2></div></div>
+  <div class="badges"><span class="badge verified">Text state labels</span><span class="badge verified">Keyboard focus</span><span class="badge verified">Reduced-motion support</span><span class="badge verified">Semantic buttons/tabs</span><span class="badge hypothesis">Formal WCAG audit not claimed</span></div>
+</section></main></div></body></html>
