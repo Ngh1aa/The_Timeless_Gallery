@@ -35,3 +35,7 @@ REDESIGN-RESEARCH.md
 ```
 
 The project intentionally avoids fake performance numbers, customer logos, certifications or testimonials that are not present in the recruitment brief.
+
+
+## Figma conversion pack
+A 19-frame static HTML handoff lives in `figma-pack/`. The pack and the main web surfaces use **Inter only** to reduce HTML → Figma text rasterization/fallback issues. Each pack frame has its own direct URL and keeps meaningful copy as HTML text.
