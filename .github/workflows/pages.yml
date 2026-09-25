@@ -80,6 +80,21 @@ jobs:
                   raise SystemExit(f"Case-study depth guard failed; expected at least 3 rich sections in {path}.")
           print("13 direct Figma links, Inter-only typography and case-study depth verified.")
 
+          wireframe = Path("figma-pack/06-wireframes-exploration.html").read_text(encoding="utf-8")
+          if "<img" in wireframe.lower() or "<svg" in wireframe.lower() or "<canvas" in wireframe.lower():
+              raise SystemExit("Wireframe frame must not contain image, SVG, or canvas visual assets.")
+          required_wireframe_tokens = [
+              "Desktop wireframe",
+              "Mobile wireframe",
+              "ROUTE DESK / INTERACTIVE PRODUCT AREA",
+              "SETTLEMENT TRACE",
+              "WORKFLOW DEMO FORM",
+          ]
+          missing_wireframe_tokens = [token for token in required_wireframe_tokens if token not in wireframe]
+          if missing_wireframe_tokens:
+              raise SystemExit("Wireframe structure is incomplete: " + ", ".join(missing_wireframe_tokens))
+          print("True grayscale structural wireframe verified: no image/SVG/canvas assets.")
+
           html = Path("index.html").read_text(encoding="utf-8")
           section_ids = []
           for marker in ('id="top"', 'id="mechanism"', 'id="trust"'):
