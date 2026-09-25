@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="FinFlow — Multi-Rail Settlement infrastructure for Money Transfer Operators and Payment Service Providers." />
-  <meta name="theme-color" content="#f6f3ec" />
+  <meta name="theme-color" content="#f6f6f8" />
   <title>FinFlow — Multi-Rail Settlement for MTOs & PSPs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,13 +18,14 @@
 
   <header class="nav-shell" data-header>
     <a class="brand" href="#top" aria-label="FinFlow home">
-      <img class="brand-mark" src="./assets/finflow-mark.svg" alt="" aria-hidden="true" /><span class="brand-wordmark">FinFlow</span>
+      <img class="brand-mark" src="./assets/finflow-mark.svg" alt="" aria-hidden="true" />
+      <span class="brand-wordmark">FinFlow</span>
     </a>
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#mechanism">Mechanism</a>
-      <a href="#trust">Trust & outcomes</a>
-      <a href="./ad-banner.html">Ad creative</a>
+      <a href="#trust">Operations</a>
+      <a href="./figma-pack/">Case study</a>
     </nav>
 
     <a class="nav-cta" href="#request-demo">Request a demo <span aria-hidden="true">↗</span></a>
@@ -32,40 +33,37 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-rail-field" aria-hidden="true"></div>
+      <div class="hero-rail-field" aria-hidden="true">
+        <span class="atlas-cluster atlas-cluster--a"></span>
+        <span class="atlas-cluster atlas-cluster--b"></span>
+        <span class="atlas-cluster atlas-cluster--c"></span>
+        <svg class="atlas-route" viewBox="0 0 1200 620" preserveAspectRatio="none">
+          <path d="M470 205 H690 C744 205 756 156 810 156 H1005" />
+          <circle cx="470" cy="205" r="4" />
+          <circle cx="810" cy="156" r="4" />
+          <circle cx="1005" cy="156" r="4" />
+        </svg>
+      </div>
 
       <div class="hero-inner grid-12">
         <div class="hero-copy">
-          <div class="section-key section-key--hero">
-            <span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Multi-rail settlement for MTOs & PSPs</span>
-          </div>
-
-          <h1 id="hero-title">One payout instruction. <em>Five rails. One route you can inspect.</em></h1>
-
+          <p class="hero-kicker">Multi-rail settlement / MTO + PSP operations</p>
+          <h1 id="hero-title">Move payouts across five rails. <em>Keep the route in sight.</em></h1>
           <p class="hero-lede">
-            FinFlow gives MTO and PSP teams one orchestration layer for bank, wallet, card, stablecoin and cash payout
-            settlement — with the selected route and transaction state kept visible from instruction to payout.
+            FinFlow puts bank, wallet, card, stablecoin and cash payout paths in one operating view,
+            so teams can follow the selected route from instruction to destination.
           </p>
 
           <div class="hero-actions">
             <a class="button button--primary" href="#request-demo">Request a workflow demo <span aria-hidden="true">↗</span></a>
-            <button class="replay-button" type="button" data-replay>
-              <span class="replay-glyph" aria-hidden="true">↻</span>
-              Replay route
-            </button>
-          </div>
-
-          <div class="hero-facts" aria-label="Product structure">
-            <div><strong>05</strong><span>settlement rails</span></div>
-            <div><strong>01</strong><span>orchestration layer</span></div>
-            <div><strong>→</strong><span>traceable route state</span></div>
+            <a class="text-link" href="#mechanism">See the routing model <span aria-hidden="true">↓</span></a>
           </div>
         </div>
 
         <div class="control-stage" aria-label="Interactive multi-rail settlement routing demonstration">
           <div class="stage-topbar">
             <div class="stage-title">
-              <span>Routing simulation</span>
+              <span>Settlement desk · TX 08421</span>
               <strong id="demo-status">Receiving transaction</strong>
             </div>
             <div class="state-legend" aria-label="Rail state legend">
@@ -83,19 +81,11 @@
 
           <div class="network-canvas" data-network>
             <svg class="network-lines" viewBox="0 0 820 468" role="img" aria-label="FinFlow routing network with five rail states">
-              <defs>
-                <filter id="routeSoftGlow" x="-100%" y="-100%" width="300%" height="300%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-
               <g class="entry-track" aria-hidden="true">
                 <path class="rail-bed rail-bed--entry" d="M114 232 H246 L282 196 H348" />
                 <path class="rail-ties rail-ties--entry" d="M114 232 H246 L282 196 H348" />
                 <path class="rail-line rail-line--entry" id="path-entry" d="M114 232 H246 L282 196 H348" />
               </g>
-
               <g class="route-track" data-route-group="bank" aria-hidden="true">
                 <path class="rail-bed" d="M454 196 H500 L544 74 H714" />
                 <path class="rail-ties" d="M454 196 H500 L544 74 H714" />
@@ -121,11 +111,10 @@
                 <path class="rail-ties" d="M454 196 H500 L548 362 H714" />
                 <path class="rail-line path--rail" id="path-cash" data-route="cash" d="M454 196 H500 L548 362 H714" />
               </g>
-
               <circle class="packet packet--entry" r="4.5">
                 <animateMotion dur="1.05s" repeatCount="indefinite"><mpath href="#path-entry" /></animateMotion>
               </circle>
-              <circle class="packet packet--route" r="4.5" filter="url(#routeSoftGlow)">
+              <circle class="packet packet--route" r="4.5">
                 <animateMotion id="route-motion" dur="1.35s" repeatCount="indefinite"><mpath id="route-mpath" href="#path-wallet" /></animateMotion>
               </circle>
             </svg>
@@ -147,7 +136,7 @@
             </article>
 
             <div class="signal-readout" data-stage="signals">
-              <span class="node-label">Illustrative routing context</span>
+              <span class="node-label">Routing context</span>
               <div><span>Corridor</span><b id="signal-corridor">US → PH</b></div>
               <div><span>Destination</span><b id="signal-destination">Wallet</b></div>
               <div><span>Decision</span><b id="signal-decision">Selected</b></div>
@@ -166,27 +155,30 @@
             <b id="settlement-state">ROUTED</b>
           </div>
         </div>
+
+        <div class="rail-index" aria-label="Supported settlement rail concepts">
+          <span>Bank</span><span>Wallet</span><span>Card</span><span>Stablecoin</span><span>Cash payout</span>
+        </div>
       </div>
     </section>
 
     <section class="mechanism section-light" id="mechanism" aria-labelledby="mechanism-title">
       <div class="section-shell grid-12">
-        <div class="section-key section-key--dark mechanism-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Mechanism</span></div>
-
+        <div class="section-marker"><span>01</span><b>Mechanism</b></div>
         <div class="mechanism-heading">
-          <h2 id="mechanism-title">A settlement decision should feel inspectable, <span>not mysterious.</span></h2>
+          <h2 id="mechanism-title">From payout instruction to destination, <span>six explicit states.</span></h2>
         </div>
         <p class="mechanism-intro">
-          Follow the same six-step transaction journey from instruction to payout. The route inspector explains both what FinFlow is doing and what the operator gains at each stage.
+          Choose a step to inspect what the system is doing and what an operator can see at that point in the journey.
         </p>
 
         <div class="step-list" role="tablist" aria-label="Transaction processing steps">
-          <button class="step-tab is-active" type="button" role="tab" aria-selected="true" data-step="receive"><span>01</span><div><strong>Receive</strong><small>Payout instruction enters</small></div></button>
-          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="analyze"><span>02</span><div><strong>Analyze</strong><small>Read transaction context</small></div></button>
-          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="orchestrate"><span>03</span><div><strong>FinFlow</strong><small>Orchestrate eligible rails</small></div></button>
-          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="route"><span>04</span><div><strong>Select & route</strong><small>Choose an available path</small></div></button>
-          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="settle"><span>05</span><div><strong>Settle</strong><small>Execute selected rail</small></div></button>
-          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="payout"><span>06</span><div><strong>Payout</strong><small>Complete destination handoff</small></div></button>
+          <button class="step-tab is-active" type="button" role="tab" aria-selected="true" data-step="receive"><span>01</span><div><strong>Receive</strong><small>Payout instruction</small></div></button>
+          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="analyze"><span>02</span><div><strong>Analyze</strong><small>Transaction context</small></div></button>
+          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="orchestrate"><span>03</span><div><strong>FinFlow</strong><small>Eligible rails</small></div></button>
+          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="route"><span>04</span><div><strong>Select & route</strong><small>Available path</small></div></button>
+          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="settle"><span>05</span><div><strong>Settle</strong><small>Selected rail</small></div></button>
+          <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="payout"><span>06</span><div><strong>Payout</strong><small>Destination handoff</small></div></button>
         </div>
 
         <div class="inspector-panel" data-inspector>
@@ -194,7 +186,6 @@
             <span>Route inspector</span>
             <b id="inspector-counter">Step 01 of 06</b>
           </div>
-
           <div class="inspector-copy">
             <span class="inspector-index" id="inspector-index">01</span>
             <div>
@@ -204,16 +195,11 @@
           </div>
 
           <div class="mechanism-rail" aria-live="polite">
-            <div class="mini-node is-current" data-mini="receive"><span>01</span><b>Receive</b></div>
-            <i></i>
-            <div class="mini-node" data-mini="analyze"><span>02</span><b>Analyze</b></div>
-            <i></i>
-            <div class="mini-node" data-mini="orchestrate"><span>03</span><b>FinFlow</b></div>
-            <i></i>
-            <div class="mini-node" data-mini="route"><span>04</span><b>Route</b></div>
-            <i></i>
-            <div class="mini-node" data-mini="settle"><span>05</span><b>Settle</b></div>
-            <i></i>
+            <div class="mini-node is-current" data-mini="receive"><span>01</span><b>Receive</b></div><i></i>
+            <div class="mini-node" data-mini="analyze"><span>02</span><b>Analyze</b></div><i></i>
+            <div class="mini-node" data-mini="orchestrate"><span>03</span><b>FinFlow</b></div><i></i>
+            <div class="mini-node" data-mini="route"><span>04</span><b>Route</b></div><i></i>
+            <div class="mini-node" data-mini="settle"><span>05</span><b>Settle</b></div><i></i>
             <div class="mini-node" data-mini="payout"><span>06</span><b>Payout</b></div>
           </div>
 
@@ -226,60 +212,36 @@
           </div>
 
           <div class="inspector-note">
-            <span>Operational outcome</span>
+            <span>Operator view</span>
             <p id="inspector-note">Operators can orient themselves before the routing layer makes a decision.</p>
           </div>
         </div>
 
         <div class="mechanism-principles">
-          <article><span>01</span><strong>One orchestration layer</strong><p>Keep multiple payout paths inside one understandable transaction journey.</p></article>
-          <article><span>02</span><strong>Visible route state</strong><p>Keep the selected rail and current settlement stage legible for operators.</p></article>
-          <article><span>03</span><strong>Rail flexibility</strong><p>Preserve multiple settlement options without making teams reason across separate tools.</p></article>
+          <article><span>One control plane</span><p>Bring eligible payout paths into one place instead of making operators jump between separate tools.</p></article>
+          <article><span>Visible route state</span><p>Keep the selected rail and current settlement stage explicit throughout the transaction.</p></article>
+          <article><span>Rail flexibility</span><p>Preserve multiple settlement options without hiding the route behind a black box.</p></article>
         </div>
       </div>
     </section>
 
     <section class="trust" id="trust" aria-labelledby="trust-title">
       <div class="section-shell grid-12">
-        <div class="section-key trust-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Trust, outcomes & conversion</span></div>
+        <div class="section-marker section-marker--trust"><span>02</span><b>Operations</b></div>
 
         <div class="trust-heading">
-          <h2 id="trust-title">Operational trust starts with a route your team can <em>inspect.</em></h2>
-          <p>FinFlow’s concept connects the buyer value, system state and demo request in one decision surface — without inventing production metrics, certifications or routing guarantees.</p>
+          <h2 id="trust-title">Review the route. Review the handoffs. <em>Then bring your own workflow.</em></h2>
+          <p>
+            The prototype shows operating visibility, not production guarantees. Routing rules, controls,
+            certifications and SLA commitments still need product, risk and security validation.
+          </p>
         </div>
 
-        <div class="outcome-ledger outcome-ledger--dark" aria-label="Illustrative FinFlow operating outcomes">
-          <article>
-            <span class="outcome-status">Illustrative target</span>
-            <strong>1 API</strong>
-            <h3>One integration surface</h3>
-            <p>Connect once instead of maintaining a separate operating surface for every payout rail.</p>
-          </article>
-          <article>
-            <span class="outcome-status">Illustrative capability</span>
-            <strong>Auto-failover</strong>
-            <h3>Recover around rail availability</h3>
-            <p>Move to the next eligible path when the preferred rail is unavailable, subject to final product rules.</p>
-          </article>
-          <article>
-            <span class="outcome-status">Illustrative routing input</span>
-            <strong>Cost / speed</strong>
-            <h3>Use transaction context</h3>
-            <p>Model corridor, destination and payout priority as visible routing context instead of hidden black-box logic.</p>
-          </article>
-          <article>
-            <span class="outcome-status">Concept outcome</span>
-            <strong>1 trace</strong>
-            <h3>One settlement story</h3>
-            <p>Keep route selection and settlement state reviewable in a single transaction history.</p>
-          </article>
-        </div>
-
-        <div class="trust-ledger" aria-label="Illustrative trust and control principles">
-          <article><span>01</span><b>Compliance workflow fit</b><p>Fit existing AML/KYC workflows rather than claim to replace them. Final policy and control scope depends on implementation.</p></article>
-          <article><span>02</span><b>Reviewable traceability</b><p>Preserve rail selection and settlement state as a reviewable operational history.</p></article>
-          <article><span>03</span><b>Data-control posture</b><p>Keep data handling explicit. Encryption, residency and retention require product and security validation.</p></article>
-          <article><span>04</span><b>Transparent operations</b><p>Expose rail state, selected path and routing context instead of hiding the decision behind a black box.</p></article>
+        <div class="operating-ledger" aria-label="FinFlow operating model">
+          <div class="ledger-row"><span>01</span><strong>Integration surface</strong><p>One orchestration layer across bank, wallet, card, stablecoin and cash payout paths.</p><b>Concept</b></div>
+          <div class="ledger-row"><span>02</span><strong>Routing context</strong><p>Keep corridor, destination and payout priority visible around the route decision.</p><b>Inspectable</b></div>
+          <div class="ledger-row"><span>03</span><strong>Rail availability</strong><p>Show which paths are selected, available or unavailable before settlement progresses.</p><b>Stateful</b></div>
+          <div class="ledger-row"><span>04</span><strong>Transaction history</strong><p>Preserve the selected path and settlement state as one reviewable operating story.</p><b>Traceable</b></div>
         </div>
 
         <div class="trust-conversion-grid">
@@ -294,15 +256,15 @@
               <article class="trace-item is-active"><span>03</span><div><strong id="trace-selected-title">Wallet rail selected</strong><small id="trace-selected-meta">Settlement path prepared</small></div><b>Current</b></article>
               <article class="trace-item"><span>04</span><div><strong>Payout</strong><small id="trace-next-meta">Wallet destination confirmation</small></div><b>Next</b></article>
             </div>
-            <p class="trace-disclaimer">Illustrative interface concept. Exact routing criteria, controls and operational states depend on FinFlow’s final product implementation.</p>
+            <p class="trace-disclaimer">Illustrative interface concept. Exact routing criteria and controls depend on the final FinFlow implementation.</p>
           </div>
 
           <div class="conversion-panel" id="request-demo">
             <span class="conversion-kicker">Workflow demo</span>
-            <h3>Bring one payout journey. <em>See every rail around it.</em></h3>
-            <p>Share your corridor, payout destination and operating constraints. The demo can be framed around that workflow.</p>
+            <h3>Bring one payout journey.</h3>
+            <p>Share a corridor, payout destination and operating constraint. Frame the demo around that workflow instead of a generic sales deck.</p>
 
-            <form class="demo-form demo-form--dark" data-demo-form>
+            <form class="demo-form" data-demo-form>
               <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
               <label><span>Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company name" required></label>
               <fieldset>
@@ -320,16 +282,18 @@
           </div>
         </div>
 
-        <p class="trust-disclaimer">Specific certifications, audit scope, data controls and SLA commitments are intentionally not claimed in this prototype. Verified details should be supplied during due diligence and onboarding.</p>
+        <p class="trust-disclaimer">No customer logos, production performance metrics, certifications or SLA guarantees are claimed in this concept.</p>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
-    <a class="brand brand--footer" href="#top" aria-label="FinFlow home"><img class="brand-mark" src="./assets/finflow-mark.svg" alt="" aria-hidden="true" /><span class="brand-wordmark">FinFlow</span></a>
+    <a class="brand brand--footer" href="#top" aria-label="FinFlow home">
+      <img class="brand-mark" src="./assets/finflow-mark.svg" alt="" aria-hidden="true" />
+      <span class="brand-wordmark">FinFlow</span>
+    </a>
     <p>Multi-Rail Settlement for MTOs & PSPs.</p>
-    <div><a href="./ad-banner.html">View 1:1 ad creative</a><a href="#top">Back to top ↑</a></div>
+    <div><a href="./figma-pack/">Case study</a><a href="#top">Back to top ↑</a></div>
   </footer>
 </body>
 </html>
