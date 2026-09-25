@@ -69,25 +69,27 @@ jobs:
           direct_links = [path.name for path in figma_frames if f'href="./{path.name}"' in hub]
           if len(direct_links) != 14:
               raise SystemExit(f"Figma hub must expose 14 direct standalone links; found {len(direct_links)}.")
+          wireframe_names = {"06-desktop-wireframe.html", "06a-mobile-wireframe.html"}
           for path in figma_frames:
               frame_html = path.read_text(encoding="utf-8")
               if "Inter Tight" in frame_html or "IBM Plex Mono" in frame_html:
                   raise SystemExit(f"Non-Inter font reference found in {path}.")
               if "family=Inter:wght@400;500;600;700" not in frame_html:
                   raise SystemExit(f"Expected Inter 400/500/600/700 import missing in {path}.")
-              if len(frame_html) < 3800:
-                  raise SystemExit(f"Case-study frame is too thin ({len(frame_html)} chars): {path}.")
-              if frame_html.count('class="case-section"') < 3:
-                  raise SystemExit(f"Case-study depth guard failed; expected at least 3 rich sections in {path}.")
-          print("14 direct Figma links, Inter-only typography and case-study depth verified.")
+              if path.name not in wireframe_names:
+                  if len(frame_html) < 3800:
+                      raise SystemExit(f"Case-study frame is too thin ({len(frame_html)} chars): {path}.")
+                  if frame_html.count('class="case-section"') < 3:
+                      raise SystemExit(f"Case-study depth guard failed; expected at least 3 rich sections in {path}.")
+          print("14 direct Figma links and Inter-only typography verified; case-study depth guard applies to non-wireframe frames.")
 
           desktop_wireframe = Path("figma-pack/06-desktop-wireframe.html").read_text(encoding="utf-8")
           mobile_wireframe = Path("figma-pack/06a-mobile-wireframe.html").read_text(encoding="utf-8")
           for label, wireframe in (("desktop", desktop_wireframe), ("mobile", mobile_wireframe)):
               if "<img" in wireframe.lower() or "<svg" in wireframe.lower() or "<canvas" in wireframe.lower():
                   raise SystemExit(f"{label.title()} wireframe must not contain image, SVG, or canvas visual assets.")
-          desktop_tokens = ["Desktop Wireframe", "ROUTE DESK / INTERACTIVE PRODUCT AREA", "SETTLEMENT TRACE", "WORKFLOW DEMO FORM"]
-          mobile_tokens = ["Mobile Wireframe", "ROUTE DESK", "SETTLEMENT TRACE", "WORKFLOW DEMO FORM"]
+          desktop_tokens = ["ROUTE DESK", "SETTLEMENT TRACE", "WORKFLOW DEMO FORM"]
+          mobile_tokens = ["ROUTE DESK", "SETTLEMENT TRACE", "WORKFLOW DEMO FORM"]
           missing_desktop = [token for token in desktop_tokens if token not in desktop_wireframe]
           missing_mobile = [token for token in mobile_tokens if token not in mobile_wireframe]
           if missing_desktop or missing_mobile:
@@ -95,7 +97,12 @@ jobs:
                                + ", ".join(missing_desktop)
                                + " | Mobile missing: "
                                + ", ".join(missing_mobile))
-          print("Separate desktop + mobile grayscale wireframes verified: no image/SVG/canvas assets.")
+          for label, wireframe in (("desktop", desktop_wireframe), ("mobile", mobile_wireframe)):
+              forbidden_visible_chrome = ['class="topbar', 'class="intro', 'class="case-section', '<h1>', '<h2>']
+              found = [token for token in forbidden_visible_chrome if token in wireframe]
+              if found:
+                  raise SystemExit(f"{label.title()} wireframe must open as bare UI only; found external presentation chrome: {found}")
+          print("Separate desktop + mobile grayscale wireframes verified as bare UI-only canvases.")
 
           html = Path("index.html").read_text(encoding="utf-8")
           section_ids = []
