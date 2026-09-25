@@ -153,6 +153,28 @@ code,pre{font-family:var(--font)}
 .list-row strong{display:block;margin-bottom:5px}
 .list-row span{display:block;color:var(--muted);font-size:14px;line-height:1.5}
 .dark-card .list-row span{color:#aab7c6}
+.message{
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr);
+  gap:24px;
+  align-items:center;
+  padding:20px 0;
+  border-top:1px solid var(--line);
+}
+.message:last-of-type{border-bottom:1px solid var(--line)}
+.message>span{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.09em;
+}
+.message h3{
+  margin:0;
+  font-size:28px;
+  line-height:1.15;
+  letter-spacing:-.025em;
+}
+.ia-item>span,.ia .node>span{color:var(--muted);line-height:1.5}
 .callout,.next{
   margin-top:22px;
   padding:28px;
@@ -445,6 +467,7 @@ code,pre{font-family:var(--font)}
   .browser-dark,.ad-top,.ad-bottom{align-items:flex-start;flex-direction:column}
   .control{grid-template-columns:1fr}
   .ia-item,.ia .node{grid-template-columns:1fr}
+  .message{grid-template-columns:1fr;gap:8px}
   .ad-square{aspect-ratio:auto;min-height:820px;padding:28px}
   .hub-hero h1{font-size:46px}
 }
