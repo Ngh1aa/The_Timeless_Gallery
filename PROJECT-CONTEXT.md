@@ -5,7 +5,7 @@
 - **Type:** B2B FinTech campaign landing page + paid social creative
 - **Audience:** Money Transfer Operators (MTOs) and Payment Service Providers (PSPs)
 - **Primary proposition:** Multi-Rail Settlement orchestration across bank, wallet, card, stablecoin and cash payout rails
-- **Current milestone:** Recruitment test prototype — Rail System V3 redesign
+- **Current milestone:** Recruitment test prototype — Master Command V2 redesign
 
 ## Problem frame
 MTO/PSP teams need to understand how a transaction moves from payout instruction to settlement without turning the orchestration layer into another operational black box.
@@ -22,11 +22,10 @@ Landing entry → understand the switch-track mental model → switch payout sce
 
 ## Deliverables
 - Desktop-first responsive landing page.
-- Four narrative sections:
-  1. Hero + interactive Multi-Rail routing object.
-  2. Interactive transaction mechanism / route inspector.
-  3. Outcomes.
-  4. Trust & Control + settlement trace + conversion.
+- Three conversion-critical sections:
+  1. Hero + interactive Multi-Rail control plane.
+  2. Interactive six-step mechanism / route inspector.
+  3. Trust + operating outcomes + settlement trace + demo conversion.
 - Facebook / Instagram 1:1 ad creative at 1080 × 1080.
 - Editable SVG export for the ad.
 
@@ -36,12 +35,12 @@ The recruitment brief does not provide production performance, compliance certif
 Therefore the prototype does not invent those claims. Routing inputs, semantic rail availability and settlement trace are explicitly presented as simulation / illustrative concept UI.
 
 ## Art direction
-**Engineered · Legible · Distinct**
+**Institutional · Precise · Inspectable**
 
 ### Signature
-A **switch-track rail system**: one payout instruction enters FinFlow, then branches through angular rail switches. Each route is drawn as a physical track language with a rail bed, repeated cross-ties and a core line.
+A **route inspector / control plane**: one payout instruction enters FinFlow, all five settlement rails remain visible, and one selected route becomes the high-contrast path.
 
-This rail geometry — not generic cards, gradients or eyebrow labels — is the primary FinFlow visual signature.
+The signature is operational rather than decorative: transaction context, rail availability, selected path and settlement trace stay visually synchronized.
 
 ### Grid system
 - 12 columns desktop.
@@ -53,13 +52,15 @@ This rail geometry — not generic cards, gradients or eyebrow labels — is the
 - Trust trace: 8 columns / conversion: 4 columns.
 
 ### Semantic state system
+- Dark operational shell: `#07111F` / `#0F1D31`
 - Selected / routed: muted cobalt `#7EA8FF`
-- Available: subdued green `#64866F`
-- Unavailable: muted red-brown `#8C6761`
-- Primary text uses three neutral contrast levels rather than extra decorative hues.
+- Available: subdued green `#6E9A7B`
+- Unavailable: muted red-brown `#A6756E`
+- Primary text uses three neutral contrast levels rather than decorative gradients.
 
 ### Typography
-- Display/UI: Inter Tight.
+- Display: Inter Tight.
+- Body/UI: Inter.
 - Operational data: IBM Plex Mono.
 - Large data values use tabular numerals.
 - Educational copy uses relaxed 1.6–1.68 line-height.
@@ -76,10 +77,10 @@ This rail geometry — not generic cards, gradients or eyebrow labels — is the
 - Motion must explain routing/state; it is not decorative filler.
 
 ## Reference synthesis
-- **Modern Treasury:** operational proof, orchestration language, rail/payment framing.
-- **Increase:** disciplined infrastructure typography and data density.
-- **Column:** restrained banking-infrastructure composition and sparse color.
-- **Airwallex Business:** buyer-oriented payment value framing.
+- **Modern Treasury:** orchestration, ledgering and reconciliation presented as inspectable primitives rather than black-box infrastructure.
+- **Increase:** disciplined API-first financial infrastructure language and predictable technical structure.
+- **Column:** granular control, full visibility and direct payment-rail framing.
+- **Airwallex Business:** buyer-oriented global payment value framing and direct conversion paths.
 - **Linear:** spacing/motion discipline, not visual copying.
 - **21st.dev:** animated diagram patterns.
 - **Flux UI:** token-driven components, reduced-motion aware motion.
