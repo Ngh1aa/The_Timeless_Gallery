@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/finflow-mark.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./finflow.css" />
   <script src="./finflow.js" defer></script>
 </head>
@@ -17,10 +18,19 @@
 
   <header class="nav-shell" data-header>
     <a class="brand" href="#top" aria-label="FinFlow home">
-      <span class="brand-mark" aria-hidden="true">
-        <i></i><i></i><i></i>
-      </span>
-      <span>FinFlow</span>
+      <svg class="brand-logo" viewBox="0 0 214 48" role="img" aria-label="FinFlow">
+        <g class="brand-logo__mark" aria-hidden="true">
+          <rect x="2.5" y="3.5" width="41" height="41" rx="8" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+          <path d="M10.5 24H17.2C21.4 24 22.6 17 27.2 14.2H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.5 24H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round"/>
+          <path d="M10.5 24H17.2C21.4 24 22.6 31 27.2 33.8H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10.5" cy="24" r="4.1" fill="currentColor"/>
+          <circle cx="36.4" cy="14.2" r="4.2" fill="var(--accent)"/>
+          <circle cx="36.4" cy="24" r="4.2" fill="var(--accent)"/>
+          <circle cx="36.4" cy="33.8" r="4.2" fill="var(--accent)"/>
+        </g>
+        <text class="brand-logo__wordmark" x="55" y="33.2">FinFlow</text>
+      </svg>
     </a>
 
     <nav class="nav-links" aria-label="Primary navigation">
@@ -329,7 +339,19 @@
   </main>
 
   <footer class="site-footer">
-    <a class="brand brand--footer" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>FinFlow</span></a>
+    <a class="brand brand--footer" href="#top" aria-label="FinFlow home"><svg class="brand-logo" viewBox="0 0 214 48" role="img" aria-label="FinFlow">
+        <g class="brand-logo__mark" aria-hidden="true">
+          <rect x="2.5" y="3.5" width="41" height="41" rx="8" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+          <path d="M10.5 24H17.2C21.4 24 22.6 17 27.2 14.2H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.5 24H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round"/>
+          <path d="M10.5 24H17.2C21.4 24 22.6 31 27.2 33.8H35.4" fill="none" stroke="var(--accent)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10.5" cy="24" r="4.1" fill="currentColor"/>
+          <circle cx="36.4" cy="14.2" r="4.2" fill="var(--accent)"/>
+          <circle cx="36.4" cy="24" r="4.2" fill="var(--accent)"/>
+          <circle cx="36.4" cy="33.8" r="4.2" fill="var(--accent)"/>
+        </g>
+        <text class="brand-logo__wordmark" x="55" y="33.2">FinFlow</text>
+      </svg></a>
     <p>Multi-Rail Settlement for MTOs & PSPs.</p>
     <div><a href="./ad-banner.html">View 1:1 ad creative</a><a href="#top">Back to top ↑</a></div>
   </footer>
