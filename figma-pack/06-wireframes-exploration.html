@@ -1,15 +1,234 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06 — Wireframes & Exploration · FinFlow</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./pack.css"></head><body><div class="page"><header class="topbar"><a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a><div class="top-meta"><span>03 — EXPLORE</span><b>06</b></div></header><main class="main"><section class="intro"><div class="page-code">06</div><div><h1>Wireframes & Exploration</h1><p>Desktop and mobile wireframes are shown together to demonstrate composition decisions before styling, plus the responsive transformation from a spatial routing view into a sequential mobile operating stack.</p></div></section>
-<section class="case-section"><div class="case-head"><div class="kicker">Desktop wireframe</div><div><h2>Product object first, decorative cards last.</h2><p>The desktop composition gives the routing desk enough room to function as both explanation and signature while keeping the headline and decision path readable.</p></div></div>
-<div class="wire-browser wire-browser--new"><div class="wire-nav"></div><div class="wire-hero wire-hero--split"><div class="wire-copy"><i></i><i></i><i></i><b></b></div><div class="wire-panel wire-panel--floating"></div></div><div class="wire-index"></div><div class="wire-light wire-light--ledger"><div></div><div></div></div><div class="wire-bottom wire-bottom--trace"><div></div><div></div></div></div></section>
-<section class="case-section"><div class="case-head"><div class="kicker">Desktop rationale</div><div><h2>Each region owns one buyer question.</h2></div></div>
-<div class="annotation-grid"><article class="annotation-card"><b>01 · Hero copy</b><h3>What does FinFlow do?</h3><p>Direct category language and five-rail proposition.</p></article><article class="annotation-card"><b>02 · Settlement atlas</b><h3>What makes it visually specific?</h3><p>Dotted global field connects geography and payment movement without generic 3D art.</p></article><article class="annotation-card"><b>03 · Route desk</b><h3>Where does FinFlow sit?</h3><p>Instruction, switch and rails stay visible together.</p></article><article class="annotation-card"><b>04 · Rail index</b><h3>What paths exist?</h3><p>Five rails are listed outside the mockup so the mental model survives at a glance.</p></article><article class="annotation-card"><b>05 · Mechanism ledger</b><h3>How does it work?</h3><p>Vertical six-step sequence supports scanning and focus.</p></article><article class="annotation-card"><b>06 · Inspector</b><h3>What happens at each state?</h3><p>One large explanatory surface changes with the selected step.</p></article><article class="annotation-card"><b>07 · Operating rows</b><h3>What remains visible?</h3><p>Rows replace generic outcome cards.</p></article><article class="annotation-card"><b>08 · Trace + CTA</b><h3>What is the next step?</h3><p>One high-contrast trace object sits beside the workflow demo.</p></article></div></section>
-<section class="case-section"><div class="case-head"><div class="kicker">Mobile wireframe</div><div><h2>The spatial network becomes a vertical operating story.</h2></div></div>
-<div class="phone-row"><div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk body"></div><div class="sk control"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div></div><div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk control"></div></div><div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk row"></div><div class="sk row"></div><div class="sk control"></div><div class="sk cta"></div></div></div></section>
-<section class="case-section"><div class="case-head"><div class="kicker">Responsive transformation</div><div><h2>Change composition, preserve meaning.</h2></div></div>
-<table class="matrix"><thead><tr><th>Desktop</th><th>Mobile</th><th>Invariant</th><th>Reason</th></tr></thead><tbody>
-<tr><td><strong>Copy + floating route desk</strong></td><td>Copy first, route desk second.</td><td>Category and route model remain above the mechanism.</td><td>Context before dense interaction.</td></tr>
-<tr><td><strong>Spatial rail network</strong></td><td>Vertical state stack.</td><td>All five rails stay visible.</td><td>No tiny horizontal labels.</td></tr>
-<tr><td><strong>Vertical step ledger + large inspector</strong></td><td>Step ledger followed by inspector.</td><td>Current state stays explicit.</td><td>Thumb-safe and readable.</td></tr>
-<tr><td><strong>Trace beside form</strong></td><td>Trace before form.</td><td>Evidence precedes conversion.</td><td>Preserve decision dependency.</td></tr>
-</tbody></table>
-<div class="note-strip"><b>Wireframe rule</b><p>If the page cannot communicate the product in grayscale without motion, the structure is not doing enough work. Motion reinforces state; it does not carry the only explanation.</p></div></section></main></div></body></html>
+<!doctype html>
+<html class="wf-html" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>06 — Wireframes & Exploration · FinFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./pack.css">
+</head>
+<body class="wf-body">
+  <div class="page wf-page">
+    <header class="topbar wf-topbar">
+      <a class="wf-wordmark" href="./index.html">FINFLOW</a>
+      <div class="top-meta"><span>03 — EXPLORE</span><b>06 · WIREFRAMES</b></div>
+    </header>
+
+    <main class="main">
+      <section class="intro wf-intro">
+        <div class="page-code">06</div>
+        <div>
+          <h1>Wireframes & Exploration</h1>
+          <p>Low / mid-fidelity structure of the current FinFlow landing. This frame intentionally removes brand imagery, color, decorative effects and final visual styling so hierarchy, content order and responsive behavior can be evaluated on their own.</p>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-head">
+          <div class="kicker">Desktop wireframe</div>
+          <div>
+            <h2>Full landing structure — grayscale only.</h2>
+            <p>The wireframe mirrors the live page information architecture: navigation → hero → route desk → rail index → mechanism → operations → settlement trace → workflow demo.</p>
+          </div>
+        </div>
+
+        <div class="wf-desktop" aria-label="Desktop grayscale wireframe">
+          <div class="wf-nav">
+            <div class="wf-logo-box">LOGO</div>
+            <div class="wf-nav-links"><span>Mechanism</span><span>Operations</span><span>Case study</span></div>
+            <div class="wf-button">Primary CTA</div>
+          </div>
+
+          <div class="wf-hero">
+            <div class="wf-hero-copy">
+              <div class="wf-label">CATEGORY / AUDIENCE</div>
+              <div class="wf-heading-lines">
+                <i class="w90"></i><i class="w78"></i><i class="w60"></i>
+              </div>
+              <div class="wf-copy-lines">
+                <i class="w100"></i><i class="w92"></i><i class="w70"></i>
+              </div>
+              <div class="wf-action-row"><span class="wf-button">Primary CTA</span><span class="wf-link">Secondary link</span></div>
+            </div>
+
+            <div class="wf-route-desk">
+              <div class="wf-box-label">ROUTE DESK / INTERACTIVE PRODUCT AREA</div>
+              <div class="wf-tabs"><span>Scenario A</span><span>Scenario B</span><span>Scenario C</span></div>
+              <div class="wf-network">
+                <div class="wf-transaction">
+                  <small>TRANSACTION</small>
+                  <b>Amount</b>
+                  <span>Origin → Destination</span>
+                  <i></i><i></i>
+                </div>
+                <div class="wf-connector wf-connector--left"></div>
+                <div class="wf-switch-box">ROUTE<br>SWITCH</div>
+                <div class="wf-connector wf-connector--right"></div>
+                <div class="wf-rail-stack">
+                  <span class="wf-rail">Rail 01</span>
+                  <span class="wf-rail wf-rail--active">Rail 02 · selected</span>
+                  <span class="wf-rail">Rail 03</span>
+                  <span class="wf-rail">Rail 04</span>
+                  <span class="wf-rail">Rail 05</span>
+                </div>
+              </div>
+              <div class="wf-statusbar"><span>Status / selected path</span><b>STATE</b></div>
+            </div>
+          </div>
+
+          <div class="wf-rail-index">
+            <span>Rail 01</span><span>Rail 02</span><span>Rail 03</span><span>Rail 04</span><span>Rail 05</span>
+          </div>
+
+          <div class="wf-section-block">
+            <div class="wf-section-side">
+              <small>01</small>
+              <b>Mechanism</b>
+            </div>
+            <div class="wf-section-title">
+              <i class="w88"></i><i class="w62"></i>
+              <div class="wf-copy-lines"><i class="w82"></i><i class="w58"></i></div>
+            </div>
+          </div>
+
+          <div class="wf-mechanism">
+            <div class="wf-step-list">
+              <span class="wf-step wf-step--active">01 · Receive</span>
+              <span class="wf-step">02 · Analyze</span>
+              <span class="wf-step">03 · FinFlow</span>
+              <span class="wf-step">04 · Select & route</span>
+              <span class="wf-step">05 · Settle</span>
+              <span class="wf-step">06 · Payout</span>
+            </div>
+            <div class="wf-inspector">
+              <div class="wf-box-label">INSPECTOR / CURRENT STEP</div>
+              <div class="wf-heading-lines"><i class="w76"></i><i class="w52"></i></div>
+              <div class="wf-copy-lines"><i class="w100"></i><i class="w90"></i><i class="w66"></i></div>
+              <div class="wf-progress-row">
+                <span class="is-current">01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span>
+              </div>
+              <div class="wf-note">Operator note / supporting state information</div>
+            </div>
+          </div>
+
+          <div class="wf-principles">
+            <div><b>Principle 01</b><i></i><i></i><i></i></div>
+            <div><b>Principle 02</b><i></i><i></i><i></i></div>
+            <div><b>Principle 03</b><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="wf-section-block wf-section-block--ops">
+            <div class="wf-section-side">
+              <small>02</small>
+              <b>Operations</b>
+            </div>
+            <div class="wf-section-title">
+              <i class="w82"></i><i class="w68"></i>
+              <div class="wf-copy-lines"><i class="w80"></i><i class="w64"></i></div>
+            </div>
+          </div>
+
+          <div class="wf-ledger">
+            <div><span>01</span><b>Operating row</b><i></i><em>Status</em></div>
+            <div><span>02</span><b>Operating row</b><i></i><em>Status</em></div>
+            <div><span>03</span><b>Operating row</b><i></i><em>Status</em></div>
+            <div><span>04</span><b>Operating row</b><i></i><em>Status</em></div>
+          </div>
+
+          <div class="wf-conversion">
+            <div class="wf-trace">
+              <div class="wf-box-label">SETTLEMENT TRACE</div>
+              <div class="wf-trace-row"><span>01</span><b>Event</b><i></i></div>
+              <div class="wf-trace-row"><span>02</span><b>Event</b><i></i></div>
+              <div class="wf-trace-row wf-trace-row--current"><span>03</span><b>Current event</b><i></i></div>
+              <div class="wf-trace-row"><span>04</span><b>Next event</b><i></i></div>
+            </div>
+            <div class="wf-form">
+              <div class="wf-box-label">WORKFLOW DEMO FORM</div>
+              <div class="wf-heading-lines"><i class="w72"></i><i class="w48"></i></div>
+              <label>Field 01<div></div></label>
+              <label>Field 02<div></div></label>
+              <div class="wf-radio-row"><span>Option</span><span>Option</span><span>Option</span></div>
+              <div class="wf-button wf-button--full">Submit CTA</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-head">
+          <div class="kicker">Mobile wireframe</div>
+          <div>
+            <h2>Same IA, collapsed into one vertical reading flow.</h2>
+            <p>The spatial route network is reduced to a vertical rail-state stack. No desktop-only hover or decorative visual is required to understand the page.</p>
+          </div>
+        </div>
+
+        <div class="wf-mobile-row">
+          <article class="wf-phone">
+            <div class="wf-phone-nav"><span>LOGO</span><span>CTA</span></div>
+            <div class="wf-phone-label">CATEGORY / AUDIENCE</div>
+            <div class="wf-phone-h1"><i></i><i></i><i></i></div>
+            <div class="wf-phone-copy"><i></i><i></i><i></i></div>
+            <div class="wf-phone-button">Primary CTA</div>
+            <div class="wf-phone-product">
+              <small>TRANSACTION</small>
+              <div class="wf-phone-slip"></div>
+              <div class="wf-phone-switch">ROUTE SWITCH</div>
+              <span>Rail 01</span><span class="is-current">Rail 02 · selected</span><span>Rail 03</span><span>Rail 04</span><span>Rail 05</span>
+            </div>
+          </article>
+
+          <article class="wf-phone">
+            <div class="wf-phone-nav"><span>LOGO</span><span>CTA</span></div>
+            <div class="wf-phone-section">01 · MECHANISM</div>
+            <div class="wf-phone-h1"><i></i><i></i></div>
+            <div class="wf-phone-steps">
+              <span class="is-current">01 · Receive</span><span>02 · Analyze</span><span>03 · FinFlow</span><span>04 · Route</span><span>05 · Settle</span><span>06 · Payout</span>
+            </div>
+            <div class="wf-phone-inspector"><small>INSPECTOR</small><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="wf-phone">
+            <div class="wf-phone-nav"><span>LOGO</span><span>CTA</span></div>
+            <div class="wf-phone-section">02 · OPERATIONS</div>
+            <div class="wf-phone-h1"><i></i><i></i></div>
+            <div class="wf-phone-ledger"><span>Operating row 01</span><span>Operating row 02</span><span>Operating row 03</span><span>Operating row 04</span></div>
+            <div class="wf-phone-trace">SETTLEMENT TRACE</div>
+            <div class="wf-phone-form"><span>Field 01</span><span>Field 02</span><span>Role options</span><b>Submit CTA</b></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-head">
+          <div class="kicker">Wireframe rules</div>
+          <div>
+            <h2>What is intentionally absent at this fidelity.</h2>
+          </div>
+        </div>
+
+        <table class="matrix wf-matrix">
+          <thead><tr><th>Removed</th><th>Why</th><th>What remains</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Brand imagery / logo asset</strong></td><td>Visual branding should not affect layout evaluation.</td><td>Plain LOGO placeholder only.</td></tr>
+            <tr><td><strong>Settlement atlas / halftone graphics</strong></td><td>Decorative signature belongs to final visual design.</td><td>Product-area boundary and route-desk footprint.</td></tr>
+            <tr><td><strong>Semantic colors</strong></td><td>Selected / available / unavailable colors are final UI decisions.</td><td>Black, white and grayscale state emphasis.</td></tr>
+            <tr><td><strong>Final shadow / elevation</strong></td><td>Depth should not make the wireframe feel polished.</td><td>Simple 1px borders and flat surfaces.</td></tr>
+            <tr><td><strong>Final copy styling</strong></td><td>Wireframe validates hierarchy, not art direction.</td><td>Heading, body, label and CTA roles.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="case-section">
+        <div class="note-strip wf-note-strip">
+          <b>Fidelity definition</b>
+          <p>This is a structural wireframe of the current landing page, not a monochrome screenshot of the final design. The goal is to validate information hierarchy, section order, interaction zones and desktop-to-mobile transformation before color, imagery and brand craft are applied.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
