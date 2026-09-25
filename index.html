@@ -8,7 +8,7 @@
   <title>FinFlow — Multi-Rail Settlement for MTOs & PSPs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./finflow.css" />
   <script src="./finflow.js" defer></script>
 </head>
@@ -25,8 +25,7 @@
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#mechanism">Mechanism</a>
-      <a href="#outcomes">Outcomes</a>
-      <a href="#trust">Trust</a>
+      <a href="#trust">Trust & outcomes</a>
       <a href="./ad-banner.html">Ad creative</a>
     </nav>
 
@@ -43,15 +42,15 @@
             <span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Multi-rail settlement for MTOs & PSPs</span>
           </div>
 
-          <h1 id="hero-title">See the route <em>before</em> settlement disappears into the stack.</h1>
+          <h1 id="hero-title">One payout instruction. <em>Five rails. One route you can inspect.</em></h1>
 
           <p class="hero-lede">
-            FinFlow receives a payout instruction, reads the transaction context and coordinates settlement across
-            bank, wallet, card, stablecoin and cash payout rails — while keeping the selected path visible to your team.
+            FinFlow gives MTO and PSP teams one orchestration layer for bank, wallet, card, stablecoin and cash payout
+            settlement — with the selected route and transaction state kept visible from instruction to payout.
           </p>
 
           <div class="hero-actions">
-            <a class="button button--primary" href="#request-demo">See FinFlow in your corridor <span aria-hidden="true">↗</span></a>
+            <a class="button button--primary" href="#request-demo">Request a workflow demo <span aria-hidden="true">↗</span></a>
             <button class="replay-button" type="button" data-replay>
               <span class="replay-glyph" aria-hidden="true">↻</span>
               Replay route
@@ -242,107 +241,91 @@
       </div>
     </section>
 
-    <section class="outcomes section-light" id="outcomes" aria-labelledby="outcomes-title">
+    <section class="trust" id="trust" aria-labelledby="trust-title">
       <div class="section-shell grid-12">
-        <div class="section-key section-key--dark outcomes-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Outcomes</span></div>
+        <div class="section-key trust-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Trust, outcomes & conversion</span></div>
 
-        <div class="outcomes-heading">
-          <h2 id="outcomes-title">One operating layer. <span>Fewer places for settlement work to fracture.</span></h2>
+        <div class="trust-heading">
+          <h2 id="trust-title">Operational trust starts with a route your team can <em>inspect.</em></h2>
+          <p>FinFlow’s concept connects the buyer value, system state and demo request in one decision surface — without inventing production metrics, certifications or routing guarantees.</p>
         </div>
-        <p class="outcomes-intro">These are illustrative product targets, not verified production metrics. They show the operating model the concept is designed to support.</p>
 
-        <div class="outcome-ledger" aria-label="Illustrative FinFlow outcome architecture">
+        <div class="outcome-ledger outcome-ledger--dark" aria-label="Illustrative FinFlow operating outcomes">
           <article>
             <span class="outcome-status">Illustrative target</span>
             <strong>1 API</strong>
             <h3>One integration surface</h3>
-            <p>Connect to FinFlow once instead of maintaining a separate operating surface for each payout rail.</p>
+            <p>Connect once instead of maintaining a separate operating surface for every payout rail.</p>
           </article>
           <article>
             <span class="outcome-status">Illustrative capability</span>
             <strong>Auto-failover</strong>
             <h3>Recover around rail availability</h3>
-            <p>Move to the next eligible rail when the preferred path is unavailable rather than leaving operators to recover manually.</p>
+            <p>Move to the next eligible path when the preferred rail is unavailable, subject to final product rules.</p>
           </article>
           <article>
-            <span class="outcome-status">Illustrative capability</span>
+            <span class="outcome-status">Illustrative routing input</span>
             <strong>Cost / speed</strong>
-            <h3>Route with transaction context</h3>
-            <p>Evaluate corridor, priority and commercial constraints before route selection instead of choosing a rail manually.</p>
+            <h3>Use transaction context</h3>
+            <p>Model corridor, destination and payout priority as visible routing context instead of hidden black-box logic.</p>
           </article>
           <article>
             <span class="outcome-status">Concept outcome</span>
             <strong>1 trace</strong>
-            <h3>One settlement history</h3>
-            <p>Keep one reviewable transaction story instead of stitching together separate partner logs after the fact.</p>
+            <h3>One settlement story</h3>
+            <p>Keep route selection and settlement state reviewable in a single transaction history.</p>
           </article>
         </div>
 
-        <div class="outcomes-disclaimer">
-          <span>Evidence note</span>
-          <p>Replace these targets with measured integration, reliability, settlement-time, cost and reconciliation evidence before launch.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust" id="trust" aria-labelledby="trust-title">
-      <div class="section-shell grid-12">
-        <div class="section-key trust-key"><span class="section-track" aria-hidden="true"><i></i><i></i><i></i></span><span>Trust & control</span></div>
-
-        <div class="trust-heading">
-          <h2 id="trust-title">Financial infrastructure earns trust by exposing the <em>state of the system.</em></h2>
-          <p>FinFlow’s concept keeps route choice, transaction state and operational context reviewable without pretending to replace an MTO or PSP’s existing risk controls.</p>
-        </div>
-
         <div class="trust-ledger" aria-label="Illustrative trust and control principles">
-          <article><span>01</span><b>Compliance-ready fit</b><p>Fit existing AML/KYC workflows rather than replace them. Final policy and control scope depends on implementation.</p></article>
-          <article><span>02</span><b>Audit-ready traceability</b><p>Preserve rail selection and settlement state as a reviewable transaction history for post-transaction investigation.</p></article>
-          <article><span>03</span><b>Data-control posture</b><p>Minimize unnecessary data movement. Encryption, residency and retention require product and security validation.</p></article>
-          <article><span>04</span><b>Transparent operations</b><p>Keep rail state, selected path and routing context visible rather than hiding the decision behind a black box.</p></article>
+          <article><span>01</span><b>Compliance-ready fit</b><p>Fit existing AML/KYC workflows rather than claim to replace them. Final policy and control scope depends on implementation.</p></article>
+          <article><span>02</span><b>Audit-ready traceability</b><p>Preserve rail selection and settlement state as a reviewable operational history.</p></article>
+          <article><span>03</span><b>Data-control posture</b><p>Keep data handling explicit. Encryption, residency and retention require product and security validation.</p></article>
+          <article><span>04</span><b>Transparent operations</b><p>Expose rail state, selected path and routing context instead of hiding the decision behind a black box.</p></article>
         </div>
 
-        <div class="trace-board" aria-label="Illustrative settlement trace">
-          <div class="trace-board-head">
-            <div><span>Settlement trace</span><strong>TX·08421</strong></div>
-            <span class="trace-state"><i></i> Route selected</span>
-          </div>
-          <div class="trace-route">
-            <article class="trace-item is-complete"><span>01</span><div><strong>Instruction received</strong><small id="trace-instruction">USD → PHP · Wallet payout</small></div><b>Complete</b></article>
-            <article class="trace-item is-complete"><span>02</span><div><strong>Transaction analyzed</strong><small>Eligible rails evaluated</small></div><b>Complete</b></article>
-            <article class="trace-item is-active"><span>03</span><div><strong id="trace-selected-title">Wallet rail selected</strong><small id="trace-selected-meta">Settlement path prepared</small></div><b>Current</b></article>
-            <article class="trace-item"><span>04</span><div><strong>Payout</strong><small id="trace-next-meta">Wallet destination confirmation</small></div><b>Next</b></article>
-          </div>
-          <p class="trace-disclaimer">Illustrative interface concept. Exact routing criteria, compliance controls and operational states depend on FinFlow’s final product implementation.</p>
-        </div>
-
-        <p class="trust-disclaimer">Security certifications, audit scope, data controls and SLA commitments are intentionally not claimed in this prototype. Verified details should be supplied during due diligence and onboarding.</p>
-      </div>
-    </section>
-
-    <section class="cta-section" id="request-demo" aria-labelledby="demo-title">
-      <div class="cta-shell">
-        <div class="cta-seal" aria-hidden="true">F</div>
-        <span class="conversion-kicker">Workflow demo</span>
-        <h2 id="demo-title">Bring one payout journey. <em>See every rail around it.</em></h2>
-        <p>Share one settlement workflow and frame the demo around your corridor, payout destination and operating constraints.</p>
-
-        <form class="demo-form" data-demo-form>
-          <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
-          <label><span>Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company name" required></label>
-          <fieldset>
-            <legend>I'm evaluating FinFlow as a</legend>
-            <div class="role-options">
-              <label><input type="radio" name="role" value="MTO" checked><span>MTO</span></label>
-              <label><input type="radio" name="role" value="PSP"><span>PSP</span></label>
-              <label><input type="radio" name="role" value="Other"><span>Other</span></label>
+        <div class="trust-conversion-grid">
+          <div class="trace-board" aria-label="Illustrative settlement trace">
+            <div class="trace-board-head">
+              <div><span>Settlement trace</span><strong>TX·08421</strong></div>
+              <span class="trace-state"><i></i> Route selected</span>
             </div>
-          </fieldset>
-          <button class="button button--primary button--full" type="submit">Request a workflow demo <span aria-hidden="true">↗</span></button>
-          <p class="form-note">Prototype only — no information is transmitted.</p>
-          <div class="form-success" role="status" aria-live="polite" hidden><span>✓</span><div><strong>Demo request staged.</strong><small>This concept does not send data.</small></div></div>
-        </form>
+            <div class="trace-route">
+              <article class="trace-item is-complete"><span>01</span><div><strong>Instruction received</strong><small id="trace-instruction">USD → PHP · Wallet payout</small></div><b>Complete</b></article>
+              <article class="trace-item is-complete"><span>02</span><div><strong>Transaction analyzed</strong><small>Eligible rails evaluated</small></div><b>Complete</b></article>
+              <article class="trace-item is-active"><span>03</span><div><strong id="trace-selected-title">Wallet rail selected</strong><small id="trace-selected-meta">Settlement path prepared</small></div><b>Current</b></article>
+              <article class="trace-item"><span>04</span><div><strong>Payout</strong><small id="trace-next-meta">Wallet destination confirmation</small></div><b>Next</b></article>
+            </div>
+            <p class="trace-disclaimer">Illustrative interface concept. Exact routing criteria, controls and operational states depend on FinFlow’s final product implementation.</p>
+          </div>
+
+          <div class="conversion-panel" id="request-demo">
+            <span class="conversion-kicker">Workflow demo</span>
+            <h3>Bring one payout journey. <em>See every rail around it.</em></h3>
+            <p>Share your corridor, payout destination and operating constraints. The demo can be framed around that workflow.</p>
+
+            <form class="demo-form demo-form--dark" data-demo-form>
+              <label><span>Work email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
+              <label><span>Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company name" required></label>
+              <fieldset>
+                <legend>I'm evaluating FinFlow as a</legend>
+                <div class="role-options">
+                  <label><input type="radio" name="role" value="MTO" checked><span>MTO</span></label>
+                  <label><input type="radio" name="role" value="PSP"><span>PSP</span></label>
+                  <label><input type="radio" name="role" value="Other"><span>Other</span></label>
+                </div>
+              </fieldset>
+              <button class="button button--primary button--full" type="submit">Request a workflow demo <span aria-hidden="true">↗</span></button>
+              <p class="form-note">Prototype only — no information is transmitted.</p>
+              <div class="form-success" role="status" aria-live="polite" hidden><span>✓</span><div><strong>Demo request staged.</strong><small>This concept does not send data.</small></div></div>
+            </form>
+          </div>
+        </div>
+
+        <p class="trust-disclaimer">Specific certifications, audit scope, data controls and SLA commitments are intentionally not claimed in this prototype. Verified details should be supplied during due diligence and onboarding.</p>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
