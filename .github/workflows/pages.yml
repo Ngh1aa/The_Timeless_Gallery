@@ -44,6 +44,19 @@ jobs:
           if missing:
               raise SystemExit("Missing required files: " + ", ".join(missing))
           print("Required FinFlow assets are present.")
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          section_ids = []
+          for marker in ('id="top"', 'id="mechanism"', 'id="trust"'):
+              if marker in html:
+                  section_ids.append(marker)
+          if len(section_ids) != 3 or html.count("<section ") != 3:
+              raise SystemExit("Landing must contain exactly three narrative <section> blocks: hero, mechanism, trust/outcomes/conversion.")
+          if 'id="outcomes"' in html or 'class="cta-section"' in html:
+              raise SystemExit("Legacy standalone outcomes/CTA sections must not return.")
+          if "Playfair Display" in html:
+              raise SystemExit("Playfair serif is not allowed in the Master Command V2 direction.")
+          print("Three-section and sans+mono structure verified.")
           PY
 
       - name: Start static server
@@ -113,10 +126,10 @@ jobs:
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02-mechanism-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/02b-mechanism-route-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism&step=route'
           "$CHROME" --headless --disable-gpu --no-sandbox --force-prefers-reduced-motion --virtual-time-budget=3500 --dump-dom 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism&step=route' | grep -q 'data-active-mini="route"'
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-outcomes-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23outcomes'
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/04-trust-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23trust'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/03-trust-outcomes-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23trust'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=1440,1100 --screenshot=qa-evidence/04-conversion-desktop.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23request-demo'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/05-hero-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=top'
-          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/06-outcomes-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23outcomes'
+          "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/06-mechanism-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23mechanism'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=3500 --window-size=390,844 --screenshot=qa-evidence/07-trust-mobile.png 'http://127.0.0.1:4173/_qa_capture.html?target=%23trust'
           "$CHROME" --headless --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --virtual-time-budget=2500 --window-size=1080,1080 --screenshot=qa-evidence/08-ad-creative.png http://127.0.0.1:4173/assets/finflow-ad-1080.svg
           ls -lh qa-evidence
