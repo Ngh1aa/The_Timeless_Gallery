@@ -1,29 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>06A — Mobile Wireframe · FinFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./pack.css">
-</head>
-<body>
-<div class="page">
-<header class="topbar">
-<a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a>
-<div class="top-meta"><span>03 — EXPLORE · Wireframe & Validation</span><b>06A</b></div>
-</header>
-<main class="main">
-<section class="intro"><div class="page-code">06A</div><div><h1>Mobile Wireframe</h1><p>Mobile converts the network into a vertical operational stack while keeping the same reading order and rail state hierarchy.</p></div></section>
-
-<div class="phone-row">
-  <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk body"></div><div class="sk control"></div><div class="sk row"></div><div class="sk row"></div></div>
-  <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div></div>
-  <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk control"></div><div class="sk body"></div><div class="sk cta"></div></div>
-</div>
-</main>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06A — Mobile Wireframe · FinFlow</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./pack.css"></head><body><div class="page"><header class="topbar"><a class="brand" href="./index.html"><img src="../assets/finflow-mark.svg" alt="FinFlow mark"><span>FinFlow</span></a><div class="top-meta"><span>03 — EXPLORE · Wireframe & Validation</span><b>06A</b></div></header><main class="main"><section class="intro"><div class="page-code">06A</div><div><h1>Mobile Wireframe</h1><p>Mobile is not a scaled desktop. The network becomes a vertical operational stack, mechanism navigation becomes touch-friendly and the conversion narrative keeps the same order with less simultaneous density.</p></div></section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Mobile structure</div><div><h2>Preserve the mental model while changing the composition.</h2></div></div>
+  <div class="phone-row">
+    <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk body"></div><div class="sk control"></div><div class="sk row"></div><div class="sk row"></div></div>
+    <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div><div class="sk row"></div></div>
+    <div class="phone"><div class="sk nav"></div><div class="sk h1"></div><div class="sk control"></div><div class="sk body"></div><div class="sk cta"></div></div>
+  </div>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Responsive transformation</div><div><h2>What changes, what stays invariant.</h2></div></div>
+  <table class="matrix"><thead><tr><th>Desktop pattern</th><th>Mobile transformation</th><th>Invariant</th><th>Reason</th></tr></thead><tbody>
+    <tr><td><strong>5/7 hero split</strong></td><td>Single-column copy → control plane.</td><td>Headline appears before interaction.</td><td>Prevents the operational UI from arriving without context.</td></tr>
+    <tr><td><strong>Horizontal rail network</strong></td><td>Vertical rail stack.</td><td>All five states remain visible.</td><td>Avoid horizontal compression and tiny labels.</td></tr>
+    <tr><td><strong>Six-step horizontal control</strong></td><td>Stacked or scrollable step navigation.</td><td>Current step remains explicit.</td><td>Supports thumb reach and readable labels.</td></tr>
+    <tr><td><strong>Side-by-side trust / CTA</strong></td><td>Evidence first, CTA second.</td><td>Conversion follows trust.</td><td>Preserves decision dependency.</td></tr>
+  </tbody></table>
+</section>
+<section class="case-section">
+  <div class="case-head"><div class="kicker">Mobile content priority</div><div><h2>Reduce simultaneous density, not information quality.</h2></div></div>
+  <div class="decision-grid">
+    <article class="decision accent"><span>Priority 01</span><b>Product category + core promise</b><p>Keep the audience cue and “one instruction / five rails” mental model above the fold.</p></article>
+    <article class="decision"><span>Priority 02</span><b>State readability</b><p>Selected / available / unavailable labels remain text, not color-only signals.</p></article>
+    <article class="decision"><span>Priority 03</span><b>Tap target clarity</b><p>Scenario and step controls require comfortable spacing instead of desktop-style compactness.</p></article>
+    <article class="decision"><span>Priority 04</span><b>Short technical copy</b><p>Supporting text is tightened so the operational UI does not get pushed too far below context.</p></article>
+    <article class="decision"><span>Priority 05</span><b>Single-column evidence</b><p>Trust items stack in reading order rather than becoming a dense card grid.</p></article>
+    <article class="decision"><span>Priority 06</span><b>CTA persistence</b><p>The demo action remains reachable without using a full-screen sticky takeover.</p></article>
+  </div>
+</section>
+<section class="case-section">
+  <div class="note-strip"><b>Mobile rule</b><p>Nothing critical is allowed to depend on hover. Hover-only affordances from desktop become visible labels, tap states or static explanatory cues on touch devices.</p></div>
+</section></main></div></body></html>
