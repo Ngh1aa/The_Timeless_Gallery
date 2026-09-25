@@ -4,11 +4,11 @@
 
   <g transform="translate(72 70)">
     <rect width="34" height="34" fill="none" stroke="#7EA8FF" stroke-width="1.5"/>
-    <text x="17" y="23" fill="#B9CEFF" font-family="IBM Plex Mono, Courier New, monospace" font-size="12" text-anchor="middle">F</text>
+    <text x="17" y="23" fill="#B9CEFF" font-family="Inter, Courier New, monospace" font-size="12" text-anchor="middle">F</text>
     <text x="50" y="25" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">FinFlow</text>
   </g>
 
-  <text x="1008" y="92" fill="#9AA8B8" font-family="IBM Plex Mono, Courier New, monospace" font-size="11" text-anchor="end" letter-spacing="1.2">MTO / PSP · MULTI-RAIL</text>
+  <text x="1008" y="92" fill="#9AA8B8" font-family="Inter, Courier New, monospace" font-size="11" text-anchor="end" letter-spacing="1.2">MTO / PSP · MULTI-RAIL</text>
 
   <line x1="72" y1="126" x2="1008" y2="126" stroke="#20344F"/>
 
@@ -20,17 +20,17 @@
     <rect width="936" height="418" fill="#0F1D31" stroke="#20344F"/>
 
     <g transform="translate(24 24)">
-      <text x="0" y="0" fill="#B9CEFF" font-family="IBM Plex Mono, Courier New, monospace" font-size="10" letter-spacing="1.1">ROUTE INSPECTOR · TX 08421</text>
-      <text x="866" y="0" fill="#7EA8FF" font-family="IBM Plex Mono, Courier New, monospace" font-size="9" text-anchor="end">ROUTED</text>
+      <text x="0" y="0" fill="#B9CEFF" font-family="Inter, Courier New, monospace" font-size="10" letter-spacing="1.1">ROUTE INSPECTOR · TX 08421</text>
+      <text x="866" y="0" fill="#7EA8FF" font-family="Inter, Courier New, monospace" font-size="9" text-anchor="end">ROUTED</text>
     </g>
 
     <line x1="24" y1="50" x2="912" y2="50" stroke="#20344F"/>
 
     <g transform="translate(24 78)">
       <rect width="256" height="214" fill="#07111F" stroke="#20344F"/>
-      <text x="18" y="28" fill="#B9CEFF" font-family="IBM Plex Mono, Courier New, monospace" font-size="9" letter-spacing="1">PAYOUT INSTRUCTION</text>
-      <text x="18" y="82" fill="#F4F7FB" font-family="IBM Plex Mono, Courier New, monospace" font-size="28">$2,840.00</text>
-      <text x="18" y="112" fill="#7EA8FF" font-family="IBM Plex Mono, Courier New, monospace" font-size="11">USD → PHP · WALLET</text>
+      <text x="18" y="28" fill="#B9CEFF" font-family="Inter, Courier New, monospace" font-size="9" letter-spacing="1">PAYOUT INSTRUCTION</text>
+      <text x="18" y="82" fill="#F4F7FB" font-family="Inter, Courier New, monospace" font-size="28">$2,840.00</text>
+      <text x="18" y="112" fill="#7EA8FF" font-family="Inter, Courier New, monospace" font-size="11">USD → PHP · WALLET</text>
       <line x1="18" y1="136" x2="238" y2="136" stroke="#20344F"/>
       <text x="18" y="160" fill="#9AA8B8" font-family="Arial, Helvetica, sans-serif" font-size="10">Destination · Wallet</text>
       <text x="18" y="184" fill="#9AA8B8" font-family="Arial, Helvetica, sans-serif" font-size="10">Priority · Fast payout</text>
@@ -38,7 +38,7 @@
 
     <g transform="translate(316 78)">
       <rect x="0" y="68" width="96" height="96" fill="#07111F" stroke="#7EA8FF"/>
-      <text x="48" y="102" fill="#B9CEFF" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="middle">ROUTE</text>
+      <text x="48" y="102" fill="#B9CEFF" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="middle">ROUTE</text>
       <text x="48" y="128" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" text-anchor="middle">FinFlow</text>
 
       <path d="M96 116H154L192 22H270" stroke="#6E9A7B" stroke-opacity=".55" stroke-width="2"/>
@@ -53,33 +53,33 @@
       <g>
         <rect width="326" height="46" fill="none" stroke="#20344F"/>
         <text x="14" y="28" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="11">01 · Bank</text>
-        <text x="310" y="28" fill="#6E9A7B" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
+        <text x="310" y="28" fill="#6E9A7B" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
       </g>
       <g transform="translate(0 56)">
         <rect width="326" height="46" fill="#7EA8FF" fill-opacity=".10" stroke="#7EA8FF"/>
         <text x="14" y="28" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="11">02 · Wallet</text>
-        <text x="310" y="28" fill="#B9CEFF" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="end">SELECTED</text>
+        <text x="310" y="28" fill="#B9CEFF" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="end">SELECTED</text>
       </g>
       <g transform="translate(0 112)">
         <rect width="326" height="46" fill="none" stroke="#20344F"/>
         <text x="14" y="28" fill="#9AA8B8" font-family="Arial, Helvetica, sans-serif" font-size="11">03 · Card</text>
-        <text x="310" y="28" fill="#A6756E" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="end">UNAVAILABLE</text>
+        <text x="310" y="28" fill="#A6756E" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="end">UNAVAILABLE</text>
       </g>
       <g transform="translate(0 168)">
         <rect width="326" height="46" fill="none" stroke="#20344F"/>
         <text x="14" y="28" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="11">04 · Stablecoin</text>
-        <text x="310" y="28" fill="#6E9A7B" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
+        <text x="310" y="28" fill="#6E9A7B" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
       </g>
       <g transform="translate(0 224)">
         <rect width="326" height="46" fill="none" stroke="#20344F"/>
         <text x="14" y="28" fill="#F4F7FB" font-family="Arial, Helvetica, sans-serif" font-size="11">05 · Cash payout</text>
-        <text x="310" y="28" fill="#6E9A7B" font-family="IBM Plex Mono, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
+        <text x="310" y="28" fill="#6E9A7B" font-family="Inter, Courier New, monospace" font-size="8" text-anchor="end">AVAILABLE</text>
       </g>
     </g>
 
     <line x1="24" y1="366" x2="912" y2="366" stroke="#20344F"/>
     <text x="24" y="394" fill="#9AA8B8" font-family="Arial, Helvetica, sans-serif" font-size="10">Selected route remains visible through settlement state.</text>
-    <text x="912" y="394" fill="#7EA8FF" font-family="IBM Plex Mono, Courier New, monospace" font-size="9" text-anchor="end">WALLET → PAYOUT</text>
+    <text x="912" y="394" fill="#7EA8FF" font-family="Inter, Courier New, monospace" font-size="9" text-anchor="end">WALLET → PAYOUT</text>
   </g>
 
   <g transform="translate(72 900)">
