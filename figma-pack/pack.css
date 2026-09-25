@@ -1003,9 +1003,16 @@ code,pre{font-family:var(--font)}
 
 
 /* 06 — true grayscale wireframe */
+.wf-html{background:#efefef}
 .wf-body{background:#efefef;color:#111}
-.wf-page{background:#fff}
+.wf-page{
+  background:#fff;
+  border-color:#111;
+  box-shadow:none;
+}
 .wf-topbar{background:#fff;border-color:#d7d7d7}
+.wf-topbar .top-meta{color:#666}
+.wf-topbar .top-meta b{color:#111}
 .wf-wordmark{
   color:#111;
   font-size:15px;
