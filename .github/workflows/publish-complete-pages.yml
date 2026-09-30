@@ -1,38 +1,75 @@
 name: Publish complete FinFlow Pages artifact
 
 on:
-  workflow_run:
-    workflows:
-      - FinFlow QA + GitHub Pages
-    types:
-      - completed
+  push:
     branches:
       - main
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
 concurrency:
-  group: finflow-complete-pages
+  group: finflow-complete-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   publish:
-    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Wait for FinFlow QA workflow on this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          echo "Waiting for FinFlow QA + GitHub Pages on ${GITHUB_SHA}"
+
+          for attempt in $(seq 1 72); do
+            result="$(gh api \
+              -H 'Accept: application/vnd.github+json' \
+              "/repos/${GITHUB_REPOSITORY}/actions/runs?head_sha=${GITHUB_SHA}&per_page=20" \
+              --jq '.workflow_runs[] | select(.name == "FinFlow QA + GitHub Pages") | [.status, (.conclusion // "")] | @tsv' \
+              | head -n 1 || true)"
+
+            if [ -z "$result" ]; then
+              echo "[$attempt/72] QA run not visible yet."
+              sleep 5
+              continue
+            fi
+
+            status="$(printf '%s' "$result" | cut -f1)"
+            conclusion="$(printf '%s' "$result" | cut -f2)"
+            echo "[$attempt/72] QA status=${status} conclusion=${conclusion:-pending}"
+
+            if [ "$status" = "completed" ] && [ "$conclusion" = "success" ]; then
+              echo "Validated QA run passed; publishing the complete artifact."
+              exit 0
+            fi
+
+            if [ "$status" = "completed" ] && [ "$conclusion" != "success" ]; then
+              echo "QA did not pass (${conclusion}); refusing to publish."
+              exit 1
+            fi
+
+            sleep 5
+          done
+
+          echo "Timed out waiting for validated QA."
+          exit 1
+
       - name: Checkout exact validated commit
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
 
       - name: Assemble complete deploy directory
         run: |
+          set -euo pipefail
           mkdir -p _site
           cp index.html finflow.css finflow.js ad-banner.html design-lens.html _site/
           cp -R assets _site/assets
