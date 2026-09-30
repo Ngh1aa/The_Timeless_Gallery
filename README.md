@@ -14,6 +14,9 @@ Recruitment-test concept for a B2B FinTech product serving **Money Transfer Oper
 ## Live preview
 GitHub Pages deploys from `main` through `.github/workflows/pages.yml`.
 
+- Landing: https://ngh1aa.github.io/The_Timeless_Gallery/
+- Evidence Lens: https://ngh1aa.github.io/The_Timeless_Gallery/design-lens.html
+
 ## Evidence deep dive
 
 The product-reasoning layer now follows:
