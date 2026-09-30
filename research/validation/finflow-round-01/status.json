@@ -1,0 +1,34 @@
+{
+  "study_id": "finflow-round-01",
+  "product": "FinFlow",
+  "study_type": "moderated task-based comprehension and usability test",
+  "status": "READY_TO_RECRUIT",
+  "evidence_state": "PLANNED_VALIDATION",
+  "target_participants": 5,
+  "verified_direct_user_sessions": 0,
+  "verified_proxy_sessions": 0,
+  "preferred_population": "MTO/PSP settlement, payments operations, treasury, reconciliation or payout operations practitioners",
+  "proxy_population_allowed": true,
+  "proxy_rule": "Adjacent fintech product, banking operations, compliance or finance participants remain PROXY and may not be promoted to DIRECT_USER.",
+  "prototype_build": {
+    "source_commit": "f4e8a6ea68f1bc09692c4469e36b087470427195",
+    "research_url": "https://ngh1aa.github.io/The_Timeless_Gallery/design-lens.html"
+  },
+  "decision_ids": ["D-01", "D-02", "D-03", "D-04"],
+  "next_valid_transition": "Recruit an eligible participant, obtain consent, capture an anonymized session against the frozen prototype, append atomic evidence, then synthesize without promoting technical QA or proxy evidence to DIRECT_USER.",
+  "iteration_gate": "Do not make an evidence-driven product iteration until traceable human evidence supports a decision change. A changed UI remains ITERATION until affected tasks are retested.",
+  "retest_gate": "Freeze the changed build and rerun the affected task(s) with compatible participants before making an improvement claim.",
+  "allowed_claims": [
+    "FinFlow has an interactive multi-rail settlement concept prototype",
+    "Decision pins and forced edge-state fixtures are technically inspectable",
+    "Round 01 direct-user validation is ready to recruit",
+    "No verified direct-user sessions have been collected yet"
+  ],
+  "forbidden_claims_until_verified": [
+    "MTO or PSP operators validated the routing model",
+    "FinFlow improves settlement comprehension",
+    "FinFlow reduces routing errors or reconciliation time",
+    "FinFlow improves conversion or demo-request rate",
+    "The iteration improved trust, task success or decision confidence"
+  ]
+}
