@@ -10,6 +10,7 @@ UIUX Factory / workspace reference used for evidence policy: `Ngh1aa/uiux-ai-wor
 
 ## Inspect now
 
+- Live Evidence Lens: https://ngh1aa.github.io/The_Timeless_Gallery/design-lens.html
 - `design-lens.html` — D-01…D-04 decision pins, conceptual baseline/current comparison, five-step tour and forced edge-state fixtures.
 - `research/validation/finflow-round-01/` — runnable moderated study package, empty atomic evidence ledger, participant tracker, findings boundary and Decision Log.
 - `qa/evidence-lens.spec.mjs` — browser gate for the evidence surface and research truth boundary.
